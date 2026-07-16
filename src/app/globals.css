@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+      @theme {
+        /* Font */
+        --font-vazir: 'Vazirmatn', sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+        /* Colors */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+        /* Ink */
+        --color-ink: #211c16;
+        --color-ink-soft: #54493d;
+        --color-ink-faint: #8a7d6e;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+        /* Sand */
+        --color-sand-50: #fdfbf7;
+        --color-sand-100: #f6efe2;
+        --color-sand-200: #ede1c9;
+        --color-sand-300: #e2d2ac;
+
+        /* Emerald */
+        --color-emerald-900: #122a23;
+        --color-emerald-800: #1b3e32;
+        --color-emerald-700: #255245;
+        --color-emerald-600: #2f6754;
+        --color-emerald-500: #3d8069;
+
+        /* Gold */
+        --color-gold-300: #e7d0a0;
+        --color-gold-400: #d4b274;
+        --color-gold-500: #b8863e;
+        --color-gold-600: #9a6e30;
+        --color-gold-700: #7c5726;
+
+        /* Garnet */
+        --color-garnet-600: #8a2a38;
+        --color-garnet-700: #6e2029;
+
+        /* Shadows */
+        --shadow-soft: 0 2px 10px -2px rgba(33, 28, 22, 0.08);
+        --shadow-card: 0 12px 32px -12px rgba(33, 28, 22, 0.18);
+        --shadow-lift: 0 20px 45px -15px rgba(33, 28, 22, 0.28);
+
+        /* Radius */
+        --radius-2xl: 1.25rem;
+        --radius-3xl: 1.75rem;
+        --radius-arch: 50% 50% 0 0 / 100% 100% 0 0;
+      }
+      * {
+        font-family: 'Vazirmatn', sans-serif;
+      }
+      .num {
+        font-feature-settings:
+          'tnum' 1,
+          'ss02' 1;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .rail::-webkit-scrollbar {
+        display: none;
+      }
+      .rail {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .divider-motif {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='16' viewBox='0 0 120 16'%3E%3Cg fill='none' stroke='%23B8863E' stroke-width='1'%3E%3Cpath d='M0 8 H36'/%3E%3Cpath d='M84 8 H120'/%3E%3Cpath d='M42 2 L48 8 L42 14 M78 2 L72 8 L78 14'/%3E%3Ccircle cx='60' cy='8' r='4.5'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: center;
+        height: 16px;
+      }
+      .focus-ring:focus-visible {
+        outline: 2px solid #b8863e;
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
