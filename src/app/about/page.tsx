@@ -12,7 +12,7 @@ export default function Page() {
           <div class="flex items-center justify-between h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-2 focus-ring">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" stroke-width="1.4" />
+                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
                 <circle cx="15" cy="15" r="5" fill="#1B3E32" />
               </svg>
               <span class="text-lg lg:text-xl font-bold tracking-tight">تالارگاه</span>
@@ -38,7 +38,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   aria-hidden="true"
                 >
                   <circle cx="11" cy="11" r="7" />
@@ -61,7 +61,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
@@ -72,7 +72,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M6 6l12 12M18 6L6 18" />
                 </svg>
@@ -199,28 +199,28 @@ export default function Page() {
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="text-center px-2">
               <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-800 flex items-center justify-center mb-4">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6Z" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" strokeWidth="1.8"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6Z" /></svg>
               </div>
               <h3 class="font-semibold mb-2">صداقت</h3>
               <p class="text-sm text-ink-soft leading-relaxed">اطلاعاتی که نمایش می‌دهیم، همان چیزی است که در واقعیت خواهید دید.</p>
             </div>
             <div class="text-center px-2">
               <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-800 flex items-center justify-center mb-4">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" stroke-width="1.8"><path d="M4 21v-7a8 8 0 0 1 16 0v7" /><path d="M4 21h16" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" strokeWidth="1.8"><path d="M4 21v-7a8 8 0 0 1 16 0v7" /><path d="M4 21h16" /></svg>
               </div>
               <h3 class="font-semibold mb-2">بی‌طرفی</h3>
               <p class="text-sm text-ink-soft leading-relaxed">هیچ تالاری به‌خاطر پرداخت بیشتر، جایگاه بهتری نمی‌گیرد.</p>
             </div>
             <div class="text-center px-2">
               <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-800 flex items-center justify-center mb-4">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" stroke-width="1.8"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" strokeWidth="1.8"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
               </div>
               <h3 class="font-semibold mb-2">احترام به وقت شما</h3>
               <p class="text-sm text-ink-soft leading-relaxed">طراحی هر بخش پلتفرم با هدف کوتاه‌ترین مسیر تا تصمیم‌گیری انجام شده.</p>
             </div>
             <div class="text-center px-2">
               <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-800 flex items-center justify-center mb-4">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" stroke-width="1.8"><path d="M20.4 4.6a5 5 0 0 0-7.1 0L12 5.9l-1.3-1.3a5 5 0 0 0-7.1 7.1L12 20.4l8.4-8.7a5 5 0 0 0 0-7.1Z" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E7D0A0" strokeWidth="1.8"><path d="M20.4 4.6a5 5 0 0 0-7.1 0L12 5.9l-1.3-1.3a5 5 0 0 0-7.1 7.1L12 20.4l8.4-8.7a5 5 0 0 0 0-7.1Z" /></svg>
               </div>
               <h3 class="font-semibold mb-2">همراهی واقعی</h3>
               <p class="text-sm text-ink-soft leading-relaxed">تیم پشتیبانی ما، خودش هم برای عروسی خانواده و دوستانش از همین پلتفرم استفاده می‌کند.</p>
@@ -246,17 +246,17 @@ export default function Page() {
           </div>
           <div class="grid sm:grid-cols-3 gap-6">
             <div class="border border-sand-200 rounded-2xl p-6">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="1.6" class="mb-4"><path d="M20 6 9 17l-5-5" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="1.6" class="mb-4"><path d="M20 6 9 17l-5-5" /></svg>
               <h3 class="font-semibold mb-2">تأیید حضوری تالارها</h3>
               <p class="text-sm text-ink-soft leading-relaxed">هر تالار پیش از انتشار در پلتفرم، توسط تیم ما بازدید و اطلاعاتش راستی‌آزمایی می‌شود.</p>
             </div>
             <div class="border border-sand-200 rounded-2xl p-6">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="1.6" class="mb-4"><path d="m12 2 3.1 6.6 7.2.9-5.3 4.9 1.4 7.2L12 18l-6.4 3.6 1.4-7.2-5.3-4.9 7.2-.9Z" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="1.6" class="mb-4"><path d="m12 2 3.1 6.6 7.2.9-5.3 4.9 1.4 7.2L12 18l-6.4 3.6 1.4-7.2-5.3-4.9 7.2-.9Z" /></svg>
               <h3 class="font-semibold mb-2">نظرات واقعی مهمانان</h3>
               <p class="text-sm text-ink-soft leading-relaxed">امتیازها و نظرات فقط از سوی کاربرانی ثبت می‌شود که واقعاً از تالار بازدید کرده‌اند.</p>
             </div>
             <div class="border border-sand-200 rounded-2xl p-6">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="1.6" class="mb-4"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="1.6" class="mb-4"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
               <h3 class="font-semibold mb-2">بدون کمیسیون پنهان</h3>
               <p class="text-sm text-ink-soft leading-relaxed">هزینه‌ای که به تالار می‌پردازید، دقیقاً همان چیزی است که به تالارگاه اعلام شده.</p>
             </div>
@@ -309,14 +309,14 @@ export default function Page() {
             <details class="group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 آیا تالارگاه خودش صاحب تالارهاست؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">خیر، تالارگاه صرفاً یک پلتفرم معرفی و مقایسه است و تالارها به‌صورت مستقل اداره می‌شوند.</p>
             </details>
             <details class="group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 درآمد تالارگاه از کجاست؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">از عضویت تالارها در پلتفرم، بدون هیچ هزینه‌ای برای کاربران نهایی.</p>
             </details>
@@ -343,7 +343,7 @@ export default function Page() {
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="col-span-2 lg:col-span-1">
               <div class="flex items-center gap-2 mb-4">
-                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" stroke-width="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
+                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" strokeWidth="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
                 <span class="font-bold">تالارگاه</span>
               </div>
               <p class="text-sm text-sand-100/60 leading-relaxed">مرجع کشف و انتخاب تالار عروسی در سراسر ایران.</p>
@@ -364,7 +364,7 @@ export default function Page() {
               <h3 class="text-sm font-semibold mb-4">ما را دنبال کنید</h3>
               <div class="flex gap-3">
                 <a href="#" aria-label="اینستاگرام" class="w-9 h-9 rounded-full bg-sand-50/10 flex items-center justify-center hover:bg-sand-50/20 transition-colors focus-ring">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
                 </a>
               </div>
             </div>

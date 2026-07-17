@@ -10,7 +10,7 @@ export default function Page() {
           <div class="flex items-center justify-between h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-2 focus-ring">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" stroke-width="1.4" />
+                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
                 <circle cx="15" cy="15" r="5" fill="#1B3E32" />
               </svg>
               <span class="text-lg lg:text-xl font-bold tracking-tight">تالارگاه</span>
@@ -36,7 +36,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   aria-hidden="true"
                 >
                   <circle cx="11" cy="11" r="7" />
@@ -59,7 +59,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
@@ -70,7 +70,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M6 6l12 12M18 6L6 18" />
                 </svg>
@@ -112,7 +112,7 @@ export default function Page() {
               <option value="rating">بالاترین امتیاز</option>
             </select>
             <button id="compare-btn" class="flex items-center gap-1.5 bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium px-5 py-2.5 rounded-full transition-colors focus-ring">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 10h18" /></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 10h18" /></svg>
               مقایسه تالارها
             </button>
           </div>
@@ -123,7 +123,7 @@ export default function Page() {
 
         <!-- ============ EMPTY STATE (shown by JS when there are no favorites) ============ -->
         <div id="empty-state" class="hidden text-center py-20 px-6">
-          <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" stroke-width="1.1" class="mx-auto mb-6">
+          <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" strokeWidth="1.1" class="mx-auto mb-6">
             <path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" stroke="#B8863E" />
           </svg>
           <h2 class="font-semibold text-lg mb-2">هنوز تالاری ذخیره نکرده‌اید</h2>
@@ -132,7 +132,7 @@ export default function Page() {
           </p>
           <a href="category.html" class="inline-flex items-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium px-6 py-3 rounded-full transition-colors focus-ring">
             مشاهده تالارها
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 19 3 12l7-7M3 12h18" /></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 19 3 12l7-7M3 12h18" /></svg>
           </a>
         </div>
       </main>
@@ -143,7 +143,7 @@ export default function Page() {
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="col-span-2 lg:col-span-1">
               <div class="flex items-center gap-2 mb-4">
-                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" stroke-width="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
+                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" strokeWidth="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
                 <span class="font-bold">تالارگاه</span>
               </div>
               <p class="text-sm text-sand-100/60 leading-relaxed">مرجع کشف و انتخاب تالار عروسی در سراسر ایران.</p>
@@ -164,7 +164,7 @@ export default function Page() {
               <h3 class="text-sm font-semibold mb-4">ما را دنبال کنید</h3>
               <div class="flex gap-3">
                 <a href="#" aria-label="اینستاگرام" class="w-9 h-9 rounded-full bg-sand-50/10 flex items-center justify-center hover:bg-sand-50/20 transition-colors focus-ring">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
                 </a>
               </div>
             </div>

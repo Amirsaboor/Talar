@@ -7,7 +7,7 @@ export default function Page() {
           <div class="flex items-center justify-between h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-2 focus-ring">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" stroke-width="1.4" />
+                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
                 <circle cx="15" cy="15" r="5" fill="#1B3E32" />
               </svg>
               <span class="text-lg lg:text-xl font-bold tracking-tight">تالارگاه</span>
@@ -33,7 +33,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   aria-hidden="true"
                 >
                   <circle cx="11" cy="11" r="7" />
@@ -56,7 +56,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
@@ -67,7 +67,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M6 6l12 12M18 6L6 18" />
                 </svg>
@@ -108,8 +108,8 @@ export default function Page() {
           <p class="text-xs font-medium text-gold-600 mb-4">۱ · صفحه ۴۰۴</p>
           <div class="bg-sand-100/50 rounded-3xl p-8 sm:p-14 text-center">
             <svg width="100" height="100" viewBox="0 0 24 24" fill="none" class="mx-auto mb-6">
-              <circle cx="12" cy="12" r="9" stroke="#E2D2AC" stroke-width="1.2" />
-              <path d="M9 10c.3-1 1-1.5 2-1.5S13 9 12.5 10 11 11.5 11 13" stroke="#B8863E" stroke-width="1.3" stroke-linecap="round" />
+              <circle cx="12" cy="12" r="9" stroke="#E2D2AC" strokeWidth="1.2" />
+              <path d="M9 10c.3-1 1-1.5 2-1.5S13 9 12.5 10 11 11.5 11 13" stroke="#B8863E" strokeWidth="1.3" stroke-linecap="round" />
               <circle cx="11" cy="16" r=".8" fill="#B8863E" />
             </svg>
             <p class="text-5xl font-light num text-ink-300 mb-3">۴۰۴</p>
@@ -128,7 +128,7 @@ export default function Page() {
         <section class="border-t border-sand-200 pt-10">
           <p class="text-xs font-medium text-gold-600 mb-4">۲ · جست‌وجوی بدون نتیجه</p>
           <div class="bg-sand-100/50 rounded-3xl p-8 sm:p-14 text-center">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" stroke-width="1.2" class="mx-auto mb-6">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" strokeWidth="1.2" class="mx-auto mb-6">
               <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /><path d="M8 11h6" stroke="#B8863E" />
             </svg>
             <h2 class="text-xl font-semibold mb-2">تالاری با این فیلترها پیدا نشد</h2>
@@ -136,9 +136,9 @@ export default function Page() {
               به نظر می‌رسد فیلترهای انتخابی محدودند. این گزینه‌ها را امتحان کنید:
             </p>
             <ul class="inline-flex flex-col gap-2 text-sm text-ink-soft mb-7 text-right">
-              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="2"><path d="M20 6 9 17l-5-5" /></svg> شهر دیگری را امتحان کنید</li>
-              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="2"><path d="M20 6 9 17l-5-5" /></svg> برخی فیلترها را حذف کنید</li>
-              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="2"><path d="M20 6 9 17l-5-5" /></svg> محدوده بودجه را افزایش دهید</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="2"><path d="M20 6 9 17l-5-5" /></svg> شهر دیگری را امتحان کنید</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="2"><path d="M20 6 9 17l-5-5" /></svg> برخی فیلترها را حذف کنید</li>
+              <li class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="2"><path d="M20 6 9 17l-5-5" /></svg> محدوده بودجه را افزایش دهید</li>
             </ul>
             <div>
               <button class="bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium px-6 py-3 rounded-full transition-colors focus-ring">پاک‌کردن فیلترها</button>
@@ -150,7 +150,7 @@ export default function Page() {
         <section class="border-t border-sand-200 pt-10">
           <p class="text-xs font-medium text-gold-600 mb-4">۳ · علاقه‌مندی‌های خالی</p>
           <div class="bg-sand-100/50 rounded-3xl p-8 sm:p-14 text-center">
-            <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" stroke-width="1.1" class="mx-auto mb-6">
+            <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" strokeWidth="1.1" class="mx-auto mb-6">
               <path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" stroke="#B8863E" />
             </svg>
             <h2 class="text-xl font-semibold mb-2">هنوز تالاری ذخیره نکرده‌اید</h2>
@@ -165,7 +165,7 @@ export default function Page() {
         <section class="border-t border-sand-200 pt-10">
           <p class="text-xs font-medium text-gold-600 mb-4">۴ · دسته‌بندی خالی</p>
           <div class="bg-sand-100/50 rounded-3xl p-8 sm:p-14 text-center">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" stroke-width="1.2" class="mx-auto mb-6">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" strokeWidth="1.2" class="mx-auto mb-6">
               <rect x="4" y="7" width="16" height="13" rx="2" /><path d="M9 7V5a3 3 0 0 1 6 0v2" stroke="#B8863E" />
             </svg>
             <h2 class="text-xl font-semibold mb-2">هنوز تالاری در این دسته‌بندی ثبت نشده</h2>
@@ -257,7 +257,7 @@ export default function Page() {
         <section class="border-t border-sand-200 pt-10">
           <p class="text-xs font-medium text-gold-600 mb-4">۶ · خطای عمومی</p>
           <div class="bg-sand-100/50 rounded-3xl p-8 sm:p-14 text-center">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" stroke-width="1.2" class="mx-auto mb-6">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" strokeWidth="1.2" class="mx-auto mb-6">
               <circle cx="12" cy="12" r="9" /><path d="M12 8v5" stroke="#8A2A38" /><circle cx="12" cy="16" r=".8" fill="#8A2A38" stroke="none" />
             </svg>
             <h2 class="text-xl font-semibold mb-2">مشکلی پیش آمد</h2>
@@ -266,7 +266,7 @@ export default function Page() {
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
               <button class="inline-flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium px-6 py-3 rounded-full transition-colors focus-ring">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5" /></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5" /></svg>
                 تلاش دوباره
               </button>
               <a href="index.html" class="inline-flex items-center justify-center gap-2 border border-sand-300 hover:border-ink text-ink text-sm font-medium px-6 py-3 rounded-full transition-colors focus-ring">بازگشت به خانه</a>

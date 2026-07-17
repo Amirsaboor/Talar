@@ -11,7 +11,7 @@ export default function Page() {
           <div class="flex items-center justify-between h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-2 focus-ring">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" stroke-width="1.4" />
+                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
                 <circle cx="15" cy="15" r="5" fill="#1B3E32" />
               </svg>
               <span class="text-lg lg:text-xl font-bold tracking-tight">تالارگاه</span>
@@ -37,7 +37,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   aria-hidden="true"
                 >
                   <circle cx="11" cy="11" r="7" />
@@ -60,7 +60,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
@@ -71,7 +71,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M6 6l12 12M18 6L6 18" />
                 </svg>
@@ -105,7 +105,7 @@ export default function Page() {
             <h1 class="text-sand-50 text-2xl sm:text-4xl font-semibold mb-3">چطور می‌توانیم کمک کنیم؟</h1>
             <p class="text-sand-100/70 text-sm mb-7">پاسخ اکثر سوالات رایج درباره تالارگاه را همین‌جا پیدا می‌کنید.</p>
             <div class="relative max-w-md mx-auto">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8A7D6E" stroke-width="2" class="absolute top-1/2 -translate-y-1/2 right-4"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8A7D6E" strokeWidth="2" class="absolute top-1/2 -translate-y-1/2 right-4"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
               <input
                 id="faq-search"
                 type="text"
@@ -135,63 +135,63 @@ export default function Page() {
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="booking" data-q="چطور می‌توانم یک تالار را رزرو کنم">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 چطور می‌توانم یک تالار را رزرو کنم؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">رزرو نهایی به‌صورت مستقیم و خارج از پلتفرم، با خود تالار انجام می‌شود. تالارگاه فقط اطلاعات و راه ارتباطی را در اختیارتان قرار می‌دهد.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="booking" data-q="آیا امکان لغو یا تغییر رزرو وجود دارد">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 آیا امکان لغو یا تغییر رزرو وجود دارد؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">قوانین لغو و تغییر رزرو توسط هر تالار به‌صورت جداگانه تعیین می‌شود؛ حتماً پیش از عقد قرارداد از این موارد مطلع شوید.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="pricing" data-q="قیمت‌های نمایش‌داده‌شده نهایی هستند">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 قیمت‌های نمایش‌داده‌شده نهایی هستند؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">قیمت‌ها تقریبی و بر اساس اعلام تالار هستند. قیمت نهایی را باید هنگام تماس یا بازدید حضوری تأیید کنید.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="pricing" data-q="آیا هزینه‌ای برای استفاده از تالارگاه پرداخت می‌کنم">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 آیا هزینه‌ای برای استفاده از تالارگاه پرداخت می‌کنم؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">خیر، جست‌وجو و مقایسه تالارها برای کاربران کاملاً رایگان است.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="venue" data-q="اطلاعات ظرفیت و امکانات هر تالار چقدر دقیق است">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 اطلاعات ظرفیت و امکانات هر تالار چقدر دقیق است؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">اطلاعات هر تالار پیش از انتشار توسط تیم ما بررسی و تأیید می‌شود، اما همچنان توصیه می‌کنیم پیش از تصمیم نهایی از تالار بازدید کنید.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="venue" data-q="آیا می‌توانم چند تالار را با هم مقایسه کنم">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 آیا می‌توانم چند تالار را با هم مقایسه کنم؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">بله، از صفحه علاقه‌مندی‌ها می‌توانید تالارهای ذخیره‌شده را کنار هم مقایسه کنید.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="services" data-q="آیا تالارها تشریفات و پذیرایی هم ارائه می‌دهند">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 آیا تالارها تشریفات و پذیرایی هم ارائه می‌دهند؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">بسیاری از تالارها آشپزخانه و تشریفات داخلی دارند؛ این اطلاعات در صفحه هر تالار مشخص شده است.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="payment" data-q="بیعانه رزرو معمولاً چقدر است">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 بیعانه رزرو معمولاً چقدر است؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">این مبلغ توسط هر تالار تعیین می‌شود؛ معمولاً بین ۱۵ تا ۳۰ درصد مبلغ کل است.</p>
             </details>
             <details class="faq-item group bg-sand-100/60 rounded-2xl p-5 [&_summary::-webkit-details-marker]:hidden" data-cat="support" data-q="اگر مشکلی با تالار پیش بیاید تالارگاه کمک می‌کند">
               <summary class="flex items-center justify-between cursor-pointer font-medium focus-ring">
                 اگر مشکلی با تالار پیش بیاید، تالارگاه کمک می‌کند؟
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" stroke-width="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#54493D" strokeWidth="2" class="shrink-0 transition-transform group-open:rotate-45"><path d="M12 5v14M5 12h14" /></svg>
               </summary>
               <p class="text-sm text-ink-soft leading-relaxed mt-3">بله، تیم پشتیبانی ما آماده کمک برای پیگیری و میانجی‌گری در صورت بروز مشکل است.</p>
             </details>
@@ -199,7 +199,7 @@ export default function Page() {
 
           <!-- No results state -->
           <div id="faq-empty" class="hidden text-center py-16">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" stroke-width="1.3" class="mx-auto mb-5"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#E2D2AC" strokeWidth="1.3" class="mx-auto mb-5"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
             <p class="font-medium mb-1">نتیجه‌ای پیدا نشد</p>
             <p class="text-sm text-ink-faint">عبارت دیگری را امتحان کنید یا مستقیم با پشتیبانی تماس بگیرید.</p>
           </div>
@@ -211,15 +211,15 @@ export default function Page() {
             <h2 class="text-xl sm:text-2xl font-semibold mb-8">هنوز به کمک نیاز دارید؟</h2>
             <div class="grid sm:grid-cols-3 gap-4">
               <a href="tel:02191000000" class="bg-sand-50 hover:shadow-card rounded-2xl p-5 transition-shadow focus-ring">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="1.6" class="mx-auto mb-3"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="1.6" class="mx-auto mb-3"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z" /></svg>
                 <p class="text-sm font-medium">تماس تلفنی</p>
               </a>
               <a href="#" class="bg-sand-50 hover:shadow-card rounded-2xl p-5 transition-shadow focus-ring">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="1.6" class="mx-auto mb-3"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 20l1-5.6A8.5 8.5 0 1 1 21 11.5Z" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="1.6" class="mx-auto mb-3"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 20l1-5.6A8.5 8.5 0 1 1 21 11.5Z" /></svg>
                 <p class="text-sm font-medium">واتساپ</p>
               </a>
               <a href="mailto:info@talargah.ir" class="bg-sand-50 hover:shadow-card rounded-2xl p-5 transition-shadow focus-ring">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" stroke-width="1.6" class="mx-auto mb-3"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 6-10 7L2 6" /></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3E32" strokeWidth="1.6" class="mx-auto mb-3"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 6-10 7L2 6" /></svg>
                 <p class="text-sm font-medium">ایمیل</p>
               </a>
             </div>
@@ -242,7 +242,7 @@ export default function Page() {
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="col-span-2 lg:col-span-1">
               <div class="flex items-center gap-2 mb-4">
-                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" stroke-width="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
+                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" strokeWidth="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
                 <span class="font-bold">تالارگاه</span>
               </div>
               <p class="text-sm text-sand-100/60 leading-relaxed">مرجع کشف و انتخاب تالار عروسی در سراسر ایران.</p>
@@ -254,7 +254,7 @@ export default function Page() {
               <h3 class="text-sm font-semibold mb-4">ما را دنبال کنید</h3>
               <div class="flex gap-3">
                 <a href="#" aria-label="اینستاگرام" class="w-9 h-9 rounded-full bg-sand-50/10 flex items-center justify-center hover:bg-sand-50/20 transition-colors focus-ring">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
                 </a>
               </div>
             </div>

@@ -10,7 +10,7 @@ export default function Page() {
           <div class="flex items-center justify-between h-16 lg:h-20">
             <a href="index.html" class="flex items-center gap-2 focus-ring">
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" stroke-width="1.4" />
+                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
                 <circle cx="15" cy="15" r="5" fill="#1B3E32" />
               </svg>
               <span class="text-lg lg:text-xl font-bold tracking-tight">تالارگاه</span>
@@ -36,7 +36,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                   aria-hidden="true"
                 >
                   <circle cx="11" cy="11" r="7" />
@@ -59,7 +59,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
@@ -70,7 +70,7 @@ export default function Page() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path d="M6 6l12 12M18 6L6 18" />
                 </svg>
@@ -106,7 +106,7 @@ export default function Page() {
             <!-- Large search bar with autosuggest -->
             <div class="relative">
               <div class="flex items-center gap-2 bg-sand-50 rounded-2xl p-2 shadow-lift">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A7D6E" stroke-width="2" class="shrink-0 mr-2"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A7D6E" strokeWidth="2" class="shrink-0 mr-2"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
                 <input
                   id="search-input"
                   type="text"
@@ -125,11 +125,11 @@ export default function Page() {
                   <p class="text-xs font-medium text-ink-faint mb-2.5">جست‌وجوهای اخیر شما</p>
                   <div class="flex flex-wrap gap-2">
                     <button class="flex items-center gap-1.5 text-xs bg-sand-100 hover:bg-sand-200 text-ink-soft px-3 py-2 rounded-full transition-colors focus-ring">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
                       باغ‌تالار کرج
                     </button>
                     <button class="flex items-center gap-1.5 text-xs bg-sand-100 hover:bg-sand-200 text-ink-soft px-3 py-2 rounded-full transition-colors focus-ring">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 3" /></svg>
                       تالار ایوان طلایی
                     </button>
                   </div>
@@ -144,7 +144,7 @@ export default function Page() {
                 </div>
                 <div>
                   <p class="text-xs font-medium text-ink-faint mb-2.5 flex items-center gap-1.5">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h4l10-10 -4-4L3 13Z" /><path d="M17 4 20 7" /></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 17h4l10-10 -4-4L3 13Z" /><path d="M17 4 20 7" /></svg>
                     رو به رشد این هفته
                   </p>
                   <ul class="space-y-1">
@@ -158,19 +158,19 @@ export default function Page() {
             <!-- Quick facet row -->
             <div class="flex flex-wrap items-center justify-center gap-2 mt-5">
               <button class="flex items-center gap-1.5 text-xs bg-sand-50/10 text-sand-50 border border-sand-50/20 px-3.5 py-2 rounded-full hover:bg-sand-50/20 transition-colors focus-ring">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" /><circle cx="12" cy="11" r="2.4" /></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 22s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" /><circle cx="12" cy="11" r="2.4" /></svg>
                 شهر
               </button>
               <button class="flex items-center gap-1.5 text-xs bg-sand-50/10 text-sand-50 border border-sand-50/20 px-3.5 py-2 rounded-full hover:bg-sand-50/20 transition-colors focus-ring">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" /><circle cx="10" cy="7" r="4" /></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" /><circle cx="10" cy="7" r="4" /></svg>
                 ظرفیت
               </button>
               <button class="flex items-center gap-1.5 text-xs bg-sand-50/10 text-sand-50 border border-sand-50/20 px-3.5 py-2 rounded-full hover:bg-sand-50/20 transition-colors focus-ring">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                 بودجه
               </button>
               <button class="flex items-center gap-1.5 text-xs bg-sand-50/10 text-sand-50 border border-sand-50/20 px-3.5 py-2 rounded-full hover:bg-sand-50/20 transition-colors focus-ring">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2 3.1 6.6 7.2.9-5.3 4.9 1.4 7.2L12 18l-6.4 3.6 1.4-7.2-5.3-4.9 7.2-.9Z" /></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="m12 2 3.1 6.6 7.2.9-5.3 4.9 1.4 7.2L12 18l-6.4 3.6 1.4-7.2-5.3-4.9 7.2-.9Z" /></svg>
                 امتیاز
               </button>
             </div>
@@ -244,11 +244,11 @@ export default function Page() {
               <div class="flex flex-wrap items-center gap-2 mb-4">
                 <span class="flex items-center gap-1.5 text-xs bg-emerald-800 text-sand-50 pr-3 pl-2 py-1.5 rounded-full">
                   تهران
-                  <button aria-label="حذف فیلتر" class="focus-ring rounded-full"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+                  <button aria-label="حذف فیلتر" class="focus-ring rounded-full"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
                 </span>
                 <span class="flex items-center gap-1.5 text-xs bg-emerald-800 text-sand-50 pr-3 pl-2 py-1.5 rounded-full">
                   زیر ۵۰۰ میلیون
-                  <button aria-label="حذف فیلتر" class="focus-ring rounded-full"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
+                  <button aria-label="حذف فیلتر" class="focus-ring rounded-full"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M18 6 6 18M6 6l12 12" /></svg></button>
                 </span>
                 <button class="text-xs text-garnet-700 hover:underline focus-ring">پاک‌کردن همه</button>
               </div>
@@ -266,10 +266,10 @@ export default function Page() {
                     <div class="relative aspect-[4/3] overflow-hidden">
                       <img src="./1.png" alt="تالار ایوان طلایی" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                       <button aria-label="افزودن به علاقه‌مندی‌ها" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-sand-50/90 flex items-center justify-center hover:scale-105 transition-transform focus-ring">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A2331" stroke-width="2"><path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" /></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A2331" strokeWidth="2"><path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" /></svg>
                       </button>
                       <span class="absolute top-3 right-3 flex items-center gap-1 bg-sand-50/90 text-emerald-800 text-[11px] font-medium px-2.5 py-1 rounded-full">
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5" /></svg>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M20 6 9 17l-5-5" /></svg>
                         تأییدشده
                       </span>
                       <span class="absolute bottom-3 right-3 bg-emerald-900/85 text-sand-50 text-xs px-3 py-1 rounded-full">ظرفیت ۶۰۰ نفر</span>
@@ -296,7 +296,7 @@ export default function Page() {
                     <div class="relative aspect-[4/3] overflow-hidden">
                       <img src="./1.png" alt="باغ‌تالار نارنجستان" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                       <button aria-label="افزودن به علاقه‌مندی‌ها" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-sand-50/90 flex items-center justify-center hover:scale-105 transition-transform focus-ring">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A2331" stroke-width="2"><path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" /></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A2331" strokeWidth="2"><path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" /></svg>
                       </button>
                       <span class="absolute bottom-3 right-3 bg-emerald-900/85 text-sand-50 text-xs px-3 py-1 rounded-full">ظرفیت ۴۰۰ نفر</span>
                     </div>
@@ -322,7 +322,7 @@ export default function Page() {
                     <div class="relative aspect-[4/3] overflow-hidden">
                       <img src="./1.png" alt="تالار نگین سبز" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                       <button aria-label="افزودن به علاقه‌مندی‌ها" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-sand-50/90 flex items-center justify-center hover:scale-105 transition-transform focus-ring">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A2331" stroke-width="2"><path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" /></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A2331" strokeWidth="2"><path d="M20.8 8.6c0-2.5-2-4.4-4.4-4.4-1.6 0-3.1.9-3.9 2.2A4.5 4.5 0 0 0 8.6 4.2c-2.5 0-4.4 2-4.4 4.4 0 5.2 8.3 10 8.3 10s8.3-4.8 8.3-10Z" /></svg>
                       </button>
                       <span class="absolute top-3 right-3 bg-garnet-700 text-sand-50 text-[11px] font-medium px-2.5 py-1 rounded-full">تخفیف ویژه</span>
                       <span class="absolute bottom-3 right-3 bg-emerald-900/85 text-sand-50 text-xs px-3 py-1 rounded-full">ظرفیت ۲۰۰ نفر</span>
@@ -349,7 +349,7 @@ export default function Page() {
               <div class="flex justify-center mt-10">
                 <button class="flex items-center gap-2 text-sm text-ink-soft border border-sand-300 hover:border-ink hover:text-ink px-6 py-3 rounded-full transition-colors focus-ring">
                   نمایش تالارهای بیشتر
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" /></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m6 9 6 6 6-6" /></svg>
                 </button>
               </div>
             </div>
@@ -359,7 +359,7 @@ export default function Page() {
 
       <!-- ============ MOBILE FLOATING FILTER TRIGGER ============ -->
       <button onclick="document.body.classList.add('filters-open')" class="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2 bg-ink text-sand-50 text-sm font-medium px-6 py-3.5 rounded-full shadow-lift focus-ring">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4" /></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M7 12h10M10 18h4" /></svg>
         فیلترها
       </button>
       <div id="filter-backdrop" class="lg:hidden fixed inset-0 bg-ink/50 z-50 opacity-0 pointer-events-none" onclick="document.body.classList.remove('filters-open')"></div>
@@ -367,7 +367,7 @@ export default function Page() {
         <div class="sticky top-0 bg-sand-50 flex items-center justify-between px-5 py-4 border-b border-sand-200">
           <h2 class="font-semibold">فیلترها</h2>
           <button onclick="document.body.classList.remove('filters-open')" aria-label="بستن" class="w-9 h-9 rounded-full hover:bg-sand-100 flex items-center justify-center focus-ring">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
           </button>
         </div>
         <div class="p-5 space-y-6">
@@ -395,7 +395,7 @@ export default function Page() {
           <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8">
             <div class="col-span-2 lg:col-span-1">
               <div class="flex items-center gap-2 mb-4">
-                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" stroke-width="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
+                <svg width="26" height="26" viewBox="0 0 30 30" fill="none" aria-hidden="true"><path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#D4B274" strokeWidth="1.4" /><circle cx="15" cy="15" r="5" fill="#D4B274" /></svg>
                 <span class="font-bold">تالارگاه</span>
               </div>
               <p class="text-sm text-sand-100/60 leading-relaxed">مرجع کشف و انتخاب تالار عروسی در سراسر ایران.</p>
@@ -425,7 +425,7 @@ export default function Page() {
               <h3 class="text-sm font-semibold mb-4">ما را دنبال کنید</h3>
               <div class="flex gap-3">
                 <a href="#" aria-label="اینستاگرام" class="w-9 h-9 rounded-full bg-sand-50/10 flex items-center justify-center hover:bg-sand-50/20 transition-colors focus-ring">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="3.5" /><circle cx="17.5" cy="6.5" r="1" /></svg>
                 </a>
               </div>
             </div>
