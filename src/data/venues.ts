@@ -27,7 +27,7 @@ export const Venues = [
     id: 3,
     title: 'تالار گلستان',
     image:
-      'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
     location: 'تهران، ونک',
     rating: 4.5,
     capacity: '۳۰۰ نفر',
