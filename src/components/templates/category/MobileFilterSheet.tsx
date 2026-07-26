@@ -2,14 +2,21 @@
 
 import { useState } from 'react';
 import { SlidersHorizontal, X } from 'lucide-react';
+import { amenityOptions, budgetOptions, capacityOptions, type CategoryFilters } from '@/lib/category-filters';
 
-export default function MobileFilterSheet({ resultCount }: { resultCount: string }) {
+interface Props {
+  filters: CategoryFilters;
+  resultCount: number;
+  setFilter: <K extends keyof CategoryFilters>(key: K, value: CategoryFilters[K]) => void;
+  toggleArrayFilter: (key: 'areas' | 'amenities', value: string) => void;
+  onReset: () => void;
+}
+
+export default function MobileFilterSheet({ filters, resultCount, setFilter, toggleArrayFilter, onReset }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [minCapacity, setMinCapacity] = useState(400);
 
   return (
     <>
-      {/* Floating trigger button (mobile only) */}
       <button
         onClick={() => setIsOpen(true)}
         className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium px-6 py-3.5 rounded-full shadow-lift transition-colors focus-ring"
@@ -18,21 +25,19 @@ export default function MobileFilterSheet({ resultCount }: { resultCount: string
         فیلترها
       </button>
 
-      {/* Backdrop */}
       <div
         onClick={() => setIsOpen(false)}
         aria-hidden="true"
-        className={`fixed inset-0 bg-ink/50 z-60 transition-opacity lg:hidden ${
+        className={`fixed inset-0 bg-ink/50 z-[60] transition-opacity lg:hidden ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       />
 
-      {/* Bottom sheet */}
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="filter-sheet-title"
-        className={`fixed inset-x-0 bottom-0 z-70 bg-sand-50 rounded-t-3xl shadow-lift max-h-[88vh] flex flex-col lg:hidden transition-transform duration-300 ${
+        className={`fixed inset-x-0 bottom-0 z-[70] bg-sand-50 rounded-t-3xl shadow-lift max-h-[88vh] flex flex-col lg:hidden transition-transform duration-300 ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
@@ -50,92 +55,81 @@ export default function MobileFilterSheet({ resultCount }: { resultCount: string
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-1 px-5 py-5 space-y-6">
-          {/* Venue type */}
+        <div className="overflow-y-auto flex-1 px-5 py-5 space-y-6 min-w-0">
           <div className="border-b border-sand-200 pb-5">
-            <h3 className="text-sm font-semibold mb-3">نوع تالار</h3>
-            <div className="space-y-3">
-              {[
-                { label: 'تالار پذیرایی', count: '۹۸', defaultChecked: true },
-                { label: 'باغ تالار', count: '۵۲', defaultChecked: false },
-                { label: 'هتل', count: '۱۸', defaultChecked: false },
-              ].map((item) => (
-                <label
-                  key={item.label}
-                  className="flex items-center gap-2.5 text-sm text-ink-soft cursor-pointer"
+            <h3 className="text-sm font-semibold mb-3">ظرفیت</h3>
+            <div className="flex flex-wrap gap-2">
+              {capacityOptions.map((opt) => (
+                <button
+                  key={opt.label}
+                  type="button"
+                  onClick={() => setFilter('capacityMin', opt.min)}
+                  className={`text-xs px-3.5 py-2.5 rounded-full border transition-colors focus-ring ${
+                    filters.capacityMin === opt.min
+                      ? 'bg-emerald-800 text-sand-50 border-emerald-800'
+                      : 'border-sand-300 text-ink-soft'
+                  }`}
                 >
-                  <input
-                    type="checkbox"
-                    defaultChecked={item.defaultChecked}
-                    className="w-5 h-5 rounded border-sand-300 accent-emerald-800 focus-ring"
-                  />
-                  {item.label} <span className="text-ink-faint text-xs num mr-auto">{item.count}</span>
-                </label>
+                  {opt.label}
+                </button>
               ))}
             </div>
           </div>
 
-          {/* Capacity */}
           <div className="border-b border-sand-200 pb-5">
-            <h3 className="text-sm font-semibold mb-3">ظرفیت مهمان</h3>
-            <div className="flex items-center justify-between text-xs text-ink-faint mb-2 num">
-              <span>۵۰ نفر</span>
-              <span>۱۰۰۰+ نفر</span>
-            </div>
-            <input
-              type="range"
-              min={50}
-              max={1000}
-              value={minCapacity}
-              onChange={(e) => setMinCapacity(Number(e.target.value))}
-              className="w-full focus-ring"
-              aria-label="حداقل ظرفیت"
-            />
-            <p className="text-xs text-ink-soft mt-2">
-              تا <span className="font-semibold num">{minCapacity}</span> نفر
-            </p>
-          </div>
-
-          {/* Budget */}
-          <div className="border-b border-sand-200 pb-5">
-            <h3 className="text-sm font-semibold mb-3">محدوده قیمت (میلیون تومان)</h3>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                placeholder="از"
-                className="w-full text-sm bg-sand-100 rounded-xl px-3 py-3 focus-ring border border-transparent focus:border-gold-500 num"
-              />
-              <span className="text-ink-faint">—</span>
-              <input
-                type="number"
-                placeholder="تا"
-                className="w-full text-sm bg-sand-100 rounded-xl px-3 py-3 focus-ring border border-transparent focus:border-gold-500 num"
-              />
+            <h3 className="text-sm font-semibold mb-3">بودجه (میلیون تومان)</h3>
+            <div className="flex flex-wrap gap-2">
+              {budgetOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setFilter('budget', opt.value)}
+                  className={`text-xs px-3.5 py-2.5 rounded-full border transition-colors focus-ring ${
+                    filters.budget === opt.value
+                      ? 'bg-emerald-800 text-sand-50 border-emerald-800'
+                      : 'border-sand-300 text-ink-soft'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Space */}
           <div className="border-b border-sand-200 pb-5">
             <h3 className="text-sm font-semibold mb-3">فضا</h3>
             <div className="flex gap-2">
-              <button className="flex-1 text-sm py-2.5 rounded-xl bg-emerald-800 text-sand-50 font-medium focus-ring">
-                سرپوشیده
-              </button>
-              <button className="flex-1 text-sm py-2.5 rounded-xl bg-sand-100 text-ink-soft focus-ring">
-                روباز
-              </button>
+              {[
+                { label: 'همه', value: 'any' as const },
+                { label: 'سرپوشیده', value: 'closed' as const },
+                { label: 'روباز', value: 'open' as const },
+              ].map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setFilter('space', opt.value)}
+                  className={`flex-1 text-sm py-2.5 rounded-xl transition-colors focus-ring ${
+                    filters.space === opt.value
+                      ? 'bg-emerald-800 text-sand-50 font-medium'
+                      : 'bg-sand-100 text-ink-soft'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* Amenities */}
           <div>
             <h3 className="text-sm font-semibold mb-3">امکانات</h3>
             <div className="flex flex-wrap gap-2">
-              {['پارکینگ', 'سالن VIP', 'کترینگ', 'سیستم صوتی', 'تهویه مطبوع'].map((label, i) => (
+              {amenityOptions.map((label) => (
                 <button
                   key={label}
-                  className={`text-xs px-3 py-2.5 rounded-full focus-ring ${
-                    i === 0
+                  type="button"
+                  onClick={() => toggleArrayFilter('amenities', label)}
+                  className={`text-xs px-3 py-2.5 rounded-full focus-ring transition-colors ${
+                    filters.amenities.includes(label)
                       ? 'bg-emerald-800 text-sand-50 font-medium'
                       : 'bg-sand-100 text-ink-soft'
                   }`}
@@ -148,12 +142,15 @@ export default function MobileFilterSheet({ resultCount }: { resultCount: string
         </div>
 
         <div className="shrink-0 flex items-center gap-3 px-5 py-4 border-t border-sand-200 bg-sand-50">
-          <button className="text-sm font-medium text-garnet-600 hover:text-garnet-700 px-4 py-3 focus-ring rounded-xl shrink-0">
+          <button
+            onClick={onReset}
+            className="text-sm font-medium text-garnet-600 hover:text-garnet-700 px-4 py-3 focus-ring rounded-xl shrink-0"
+          >
             پاک‌کردن
           </button>
           <button
             onClick={() => setIsOpen(false)}
-            className="flex-1 bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium py-3.5 rounded-full transition-colors focus-ring"
+            className="flex-1 min-w-0 bg-emerald-800 hover:bg-emerald-700 text-sand-50 text-sm font-medium py-3.5 rounded-full transition-colors focus-ring truncate"
           >
             نمایش {resultCount} تالار
           </button>

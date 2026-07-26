@@ -14,7 +14,7 @@ const FAQSection = () => {
         </div>
         <div className="flex flex-col gap-4">
           {FaqData.map((faq) => (
-           <FAQCard faq={faq}/>
+           <FAQCard key={faq.id} faq={faq}/>
           ))}
         </div>
       </div>

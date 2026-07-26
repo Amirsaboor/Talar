@@ -1,7 +1,19 @@
 import Link from 'next/link';
 import { Heart, Star } from 'lucide-react'; // وارد کردن آیکون‌ها
 
-export const VenueCard = ({ venue }) => {
+interface Venue {
+  id: number;
+  title: string;
+  image: string;
+  location: string;
+  rating: number;
+  capacity: string;
+  tags: string[];
+  price: string;
+  href: string;
+}
+
+export const VenueCard = ({ venue }: { venue: Venue }) => {
   return (
     <article className="group bg-sand-50 rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
       <div className="relative aspect-4/3 overflow-hidden">
@@ -39,7 +51,7 @@ export const VenueCard = ({ venue }) => {
         <p className="text-sm text-ink-faint mt-1">{venue.location}</p>
 
         <div className="flex flex-wrap gap-1.5 mt-3">
-          {venue.tags.map((tag, index) => (
+          {venue.tags.map((tag: string, index: number) => (
             <span
               key={index}
               className="text-xs bg-sand-100 text-ink-soft px-2.5 py-1 rounded-full"

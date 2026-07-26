@@ -1,23 +1,14 @@
 import Link from 'next/link';
 import { Heart, Star, Check } from 'lucide-react';
+import type { CategoryVenue } from '@/data/category-venues';
 
-interface Venue {
-  id: number;
-  title: string;
-  image: string;
-  location: string;
-  rating: string;
-  ratingCount: string;
-  capacity: string;
-  verified: boolean;
-  tags: string[];
-  price: string;
-  href: string;
+interface Props {
+  venue: CategoryVenue;
 }
 
-export default function CategoryVenueCard({ venue }: { venue: Venue }) {
+export default function CategoryVenueCard({ venue }: Props) {
   return (
-    <article className="group bg-sand-50 rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
+    <article className="group min-w-0 bg-sand-50 rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-shadow">
       <Link href={venue.href} className="block focus-ring">
         <div className="relative aspect-4/3 overflow-hidden">
           <img
@@ -38,21 +29,24 @@ export default function CategoryVenueCard({ venue }: { venue: Venue }) {
               تأییدشده
             </span>
           )}
-          <span className="absolute bottom-3 right-3 bg-emerald-900/85 text-sand-50 text-xs px-3 py-1 rounded-full">
+          <span className="absolute bottom-3 right-3 bg-emerald-900/85 text-sand-50 text-xs px-3 py-1 rounded-full whitespace-nowrap">
             ظرفیت {venue.capacity}
           </span>
         </div>
 
-        <div className="p-5">
+        <div className="p-5 min-w-0">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-semibold leading-snug">{venue.title}</h3>
+            {/* min-w-0 + break-words اینجا حیاتی است: بدون آن، عنوان بلند کارت را از ستون گرید بیرون می‌زند */}
+            <h3 className="min-w-0 font-semibold leading-snug break-words line-clamp-2">
+              {venue.title}
+            </h3>
             <div className="flex items-center gap-1 text-xs text-ink-soft shrink-0">
-              <Star size={13} className="fill-[#B8863E] text-[#B8863E]" />
+              <Star size={13} className="fill-[#B8863E] text-[#B8863E] shrink-0" />
               <span className="num">{venue.rating}</span>
               <span className="text-ink-faint num">({venue.ratingCount})</span>
             </div>
           </div>
-          <p className="text-sm text-ink-faint mt-1">{venue.location}</p>
+          <p className="text-sm text-ink-faint mt-1 truncate">{venue.location}</p>
           <div className="flex flex-wrap gap-1.5 mt-3">
             {venue.tags.map((tag) => (
               <span
@@ -63,13 +57,13 @@ export default function CategoryVenueCard({ venue }: { venue: Venue }) {
               </span>
             ))}
           </div>
-          <div className="flex items-center justify-between mt-4 pt-4 border-t border-sand-200">
-            <p className="text-sm">
+          <div className="flex items-center justify-between gap-2 mt-4 pt-4 border-t border-sand-200">
+            <p className="text-sm min-w-0 truncate">
               <span className="text-ink-faint">شروع از </span>
               <span className="font-semibold num">{venue.price}</span>
               <span className="text-ink-faint"> میلیون</span>
             </p>
-            <span className="text-xs font-medium bg-emerald-800 text-sand-50 px-3.5 py-2 rounded-full">
+            <span className="shrink-0 text-xs font-medium bg-emerald-800 text-sand-50 px-3.5 py-2 rounded-full">
               مشاهده جزئیات
             </span>
           </div>

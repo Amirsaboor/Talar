@@ -12,7 +12,7 @@ export default function CTASection() {
             جست‌وجو را همین حالا شروع کنید؛ کاملاً رایگان و بدون نیاز به ثبت‌نام.
           </p>
           <Link
-            href="search.html"
+            href="/search"
             className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-ink font-medium px-8 py-3.5 rounded-full transition-colors focus-ring"
           >
             <svg
