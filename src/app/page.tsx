@@ -50,7 +50,7 @@ export default function Page() {
                 <h2 className="text-2xl sm:text-3xl font-semibold">تالارهای برگزیده این هفته</h2>
               </div>
               <Link
-                href="category.html"
+                href="/category/all"
                 className="hidden sm:block text-sm text-emerald-700 hover:text-emerald-800 font-medium focus-ring"
               >
                 مشاهده همه ←
@@ -64,7 +64,7 @@ export default function Page() {
             </div>
 
             <Link
-              href="category.html"
+              href="/category/all"
               className="sm:hidden mt-6 flex items-center justify-center text-sm text-emerald-700 font-medium focus-ring"
             >
               مشاهده همه تالارها ←
@@ -81,7 +81,7 @@ export default function Page() {
 
           <div className="rail flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
             <Link
-              href="category.html"
+              href="/category/city/tehran"
               className="group relative shrink-0 w-64 sm:w-auto h-72 rounded-3xl overflow-hidden focus-ring"
             >
               <img
@@ -97,7 +97,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              href="category.html"
+              href="/category/city/isfahan"
               className="group relative shrink-0 w-64 sm:w-auto h-72 rounded-3xl overflow-hidden focus-ring"
             >
               <img
@@ -113,7 +113,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              href="category.html"
+              href="/category/city/shiraz"
               className="group relative shrink-0 w-64 sm:w-auto h-72 rounded-3xl overflow-hidden focus-ring"
             >
               <img
@@ -129,7 +129,7 @@ export default function Page() {
               </div>
             </Link>
             <Link
-              href="category.html"
+              href="/category/city/rasht"
               className="group relative shrink-0 w-64 sm:w-auto h-72 rounded-3xl overflow-hidden focus-ring"
             >
               <img
@@ -173,7 +173,7 @@ export default function Page() {
                   </div>
                 </div>
                 <Link
-                  href="category.html"
+                  href="/category/luxury"
                   className="inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-ink font-medium text-sm px-6 py-3.5 rounded-full transition-colors focus-ring"
                 >
                   مشاهده مجموعه لوکس
@@ -215,7 +215,7 @@ export default function Page() {
               <h2 className="text-2xl sm:text-3xl font-semibold">مجموعه اقتصادی</h2>
             </div>
             <Link
-              href="category.html"
+              href="/category/economy"
               className="hidden sm:block text-sm text-emerald-700 hover:text-emerald-800 font-medium focus-ring"
             >
               مقایسه تالارها ←
