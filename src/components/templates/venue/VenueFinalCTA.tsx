@@ -1,6 +1,6 @@
 import { Phone } from 'lucide-react';
 
-export default function VenueFinalCTA() {
+export default function VenueFinalCta() {
   return (
     <section className="relative overflow-hidden py-16">
       <div className="absolute inset-0 bg-gradient-to-l from-emerald-900 to-emerald-800" />

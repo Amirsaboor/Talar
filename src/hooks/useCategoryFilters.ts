@@ -1,90 +1,112 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import type { CategoryVenue } from '@/data/category-venues';
+import { useEffect, useMemo, useState } from 'react';
 import {
-  defaultFilters,
-  filterVenues,
-  paginate,
-  sortVenues,
-  totalPages as calcTotalPages,
-  type CategoryFilters,
+  type ArrayFilterKey,
+  type CapacityOption,
+  type CategoryFiltersState,
+  type CategoryVenue,
+  DEFAULT_FILTERS,
+  activeFilterCount,
+  filterCategoryVenues,
 } from '@/lib/category-filters';
-import { filtersFromSearchParams, filtersToSearchParams } from '@/lib/category-url-params';
+import { sortVenues, type SearchSortOption } from '@/lib/venue-search';
 
-const URL_SYNC_DEBOUNCE_MS = 300;
+const PAGE_SIZE = 9;
 
-export function useCategoryFilters(venues: CategoryVenue[]) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+export function useCategoryFilters<T extends CategoryVenue>(venues: T[]) {
+  const [filters, setFilters] = useState<CategoryFiltersState>(DEFAULT_FILTERS);
+  const [sort, setSort] = useState<SearchSortOption>('relevance');
+  const [page, setPageState] = useState(1);
 
-  // خواندن state اولیه از URL فعلی؛ یعنی رفرش یا اشتراک‌گذاری لینک، فیلترها را حفظ می‌کند
-  const [filters, setFilters] = useState<CategoryFilters>(() => filtersFromSearchParams(searchParams));
-
-  const syncTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // هر تغییر در فیلترها، با یک تأخیر کوتاه در URL نوشته می‌شود (بدون اسپم کردن تاریخچه مرورگر)
-  useEffect(() => {
-    if (syncTimer.current) clearTimeout(syncTimer.current);
-    syncTimer.current = setTimeout(() => {
-      const qs = filtersToSearchParams(filters).toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-    }, URL_SYNC_DEBOUNCE_MS);
-
-    return () => {
-      if (syncTimer.current) clearTimeout(syncTimer.current);
-    };
-  }, [filters, pathname, router]);
-
-  /** تغییر یک فیلد؛ تغییر هر فیلتری غیر از صفحه، صفحه را به ۱ برمی‌گرداند */
-  const setFilter = useCallback(
-    <K extends keyof CategoryFilters>(key: K, value: CategoryFilters[K]) => {
-      setFilters((prev) => ({
-        ...prev,
-        [key]: value,
-        page: key === 'page' ? (value as number) : 1,
-      }));
-    },
-    []
-  );
-
-  /** toggle برای فیلترهای چندانتخابی (منطقه، امکانات) */
-  const toggleArrayFilter = useCallback((key: 'areas' | 'amenities', value: string) => {
-    setFilters((prev) => {
-      const current = prev[key];
-      const next = current.includes(value)
-        ? current.filter((v) => v !== value)
-        : [...current, value];
-      return { ...prev, [key]: next, page: 1 };
+  /** افزودن/حذف یک مقدار در فیلترهای چندانتخابی (منطقه، امکانات، نوع فضا، نوع تالار) */
+  const toggle = (key: ArrayFilterKey, value: string) => {
+    setFilters((f) => {
+      const list = f[key];
+      const next = list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
+      return { ...f, [key]: next };
     });
-  }, []);
+  };
 
-  const resetFilters = useCallback(() => setFilters(defaultFilters), []);
+  /** برای دکمه‌های تک‌انتخابی (مثل «فضا» در شیت موبایل): با کلیک دوباره، انتخاب پاک می‌شود */
+  const setSingle = (key: ArrayFilterKey, value: string) => {
+    setFilters((f) => ({ ...f, [key]: f[key].includes(value) ? [] : [value] }));
+  };
 
-  const filteredVenues = useMemo(() => filterVenues(venues, filters), [venues, filters]);
-  const sortedVenues = useMemo(
-    () => sortVenues(filteredVenues, filters.sortBy),
-    [filteredVenues, filters.sortBy]
+  /** انتخاب بازه ظرفیت از پیش‌تعریف‌شده (کلیک دوباره روی گزینه فعال، آن را پاک می‌کند) */
+  const setCapacityPreset = (option: CapacityOption) => {
+    setFilters((f) => {
+      const isActive = f.capacityMin === option.min && f.capacityMax === option.max;
+      return isActive
+        ? { ...f, capacityMin: 0, capacityMax: Infinity }
+        : { ...f, capacityMin: option.min, capacityMax: option.max };
+    });
+  };
+
+  /** اسلایدر ظرفیت در شیت موبایل، فقط سقف ظرفیت را تنظیم می‌کند */
+  const setCapacityMax = (max: number) => {
+    setFilters((f) => ({ ...f, capacityMax: max }));
+  };
+
+  const setBudget = (min: number | null, max: number | null) => {
+    setFilters((f) => ({ ...f, budgetMin: min, budgetMax: max }));
+  };
+
+  const setMinRating = (value: number) => {
+    setFilters((f) => ({ ...f, minRating: f.minRating === value ? null : value }));
+  };
+
+  const removeFilter = (key: ArrayFilterKey, value: string) => toggle(key, value);
+
+  const clearCapacity = () => setFilters((f) => ({ ...f, capacityMin: 0, capacityMax: Infinity }));
+
+  const clearAll = () => setFilters(DEFAULT_FILTERS);
+
+  const allResults = useMemo(
+    () => sortVenues(filterCategoryVenues(venues, filters), sort),
+    [venues, filters, sort]
   );
 
-  const pages = calcTotalPages(sortedVenues.length);
-  const currentPage = Math.min(filters.page, pages);
-  const pageItems = useMemo(
-    () => paginate(sortedVenues, currentPage),
-    [sortedVenues, currentPage]
+  const totalPages = Math.max(1, Math.ceil(allResults.length / PAGE_SIZE));
+  // اگر بعد از تغییر فیلتر تعداد صفحات کم شد، صفحه فعلی را در بازه معتبر نگه می‌داریم
+  const currentPage = Math.min(page, totalPages);
+
+  // با هر تغییر فیلتر یا مرتب‌سازی، نتایج عوض می‌شود، پس باید به صفحه اول برگردیم
+  useEffect(() => {
+    setPageState(1);
+  }, [filters, sort]);
+
+  const setPage = (next: number) => {
+    setPageState(Math.min(Math.max(1, next), totalPages));
+  };
+
+  const results = useMemo(
+    () => allResults.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [allResults, currentPage]
   );
+
+  const count = useMemo(() => activeFilterCount(filters), [filters]);
 
   return {
     filters,
-    setFilter,
-    toggleArrayFilter,
-    resetFilters,
-    results: sortedVenues,
-    resultCount: sortedVenues.length,
-    pageItems,
-    currentPage,
-    totalPages: pages,
+    toggle,
+    setSingle,
+    setCapacityPreset,
+    setCapacityMax,
+    setBudget,
+    setMinRating,
+    removeFilter,
+    clearCapacity,
+    clearAll,
+    activeCount: count,
+    sort,
+    setSort,
+    results,
+    totalCount: allResults.length,
+    page: currentPage,
+    totalPages,
+    setPage,
   };
 }
+
+export type UseCategoryFiltersReturn = ReturnType<typeof useCategoryFilters>;

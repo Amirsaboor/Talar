@@ -1,5 +1,5 @@
-import { Suspense } from 'react';
 import Link from 'next/link';
+import { MapPin, Users, ArrowLeftRight, Search } from 'lucide-react';
 import Footer from '@/components/modules/layout/Footer';
 import CategoryResults from '@/components/templates/category/CategoryResults';
 import { categoryVenues } from '@/data/category-venues';
@@ -10,6 +10,8 @@ const cityLabels: Record<string, string> = {
   shiraz: 'شیراز',
   rasht: 'رشت',
   mashhad: 'مشهد',
+  karaj: 'کرج',
+  shahriar: 'شهریار',
 };
 
 const categoryLabels: Record<string, string> = {
@@ -27,6 +29,7 @@ const categoryLabels: Record<string, string> = {
 };
 
 function resolveCategory(slug: string[]) {
+  // /category/city/tehran -> city page
   if (slug[0] === 'city' && slug[1]) {
     const city = cityLabels[slug[1]] ?? slug[1];
     return {
@@ -54,13 +57,14 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params;
   const { title, breadcrumb, subtitle, eyebrow } = resolveCategory(slug ?? []);
+  const resultCount = String(categoryVenues.length * 28); // نمایشی
 
   return (
     <div className="bg-sand-50 text-ink antialiased">
       <main id="main">
         {/* ============ BREADCRUMB ============ */}
         <nav aria-label="مسیر صفحه" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">
-          <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-ink-faint flex-wrap">
+          <ol className="flex items-center gap-1.5 text-xs sm:text-sm text-ink-faint">
             <li>
               <Link href="/" className="hover:text-ink transition-colors focus-ring rounded">
                 خانه
@@ -95,39 +99,70 @@ export default async function CategoryPage({
             <div className="absolute inset-0 bg-linear-to-t from-ink/85 via-ink/40 to-ink/5" />
             <div className="relative h-full flex flex-col justify-end p-5 sm:p-8">
               <p className="text-gold-300 text-xs sm:text-sm font-medium mb-2">{eyebrow}</p>
-              <h1 className="text-sand-50 font-semibold text-2xl sm:text-4xl leading-snug max-w-xl break-words">
+              <h1 className="text-sand-50 font-semibold text-2xl sm:text-4xl leading-snug max-w-xl">
                 {title}
               </h1>
               <p className="text-sand-100/85 text-sm sm:text-base mt-2 max-w-lg leading-relaxed hidden sm:block">
                 {subtitle}
               </p>
-              <p className="text-sand-100 text-sm mt-3 num font-medium">
-                {categoryVenues.length} تالار موجود
-              </p>
+              <p className="text-sand-100 text-sm mt-3 num font-medium">{resultCount} تالار موجود</p>
             </div>
           </div>
         </section>
 
-        {/* ============ SEARCH + FILTERS + RESULTS ============ */}
-        <Suspense fallback={<CategoryResultsSkeleton />}>
-          <CategoryResults venues={categoryVenues} />
-        </Suspense>
-      </main>
-    </div>
-  );
-}
-
-function CategoryResultsSkeleton() {
-  return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10 animate-pulse">
-      <div className="grid lg:grid-cols-[280px_1fr] gap-8">
-        <div className="hidden lg:block h-96 bg-sand-100 rounded-3xl" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-80 bg-sand-100 rounded-3xl" />
-          ))}
+        {/* ============ STICKY SEARCH BAR ============ */}
+        <div className="sticky top-16 lg:top-20 z-40 mt-6">
+          <div className="bg-sand-50/95 backdrop-blur-md border-y border-sand-200/80 py-3">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <form className="bg-sand-50 rounded-2xl sm:rounded-full shadow-card border border-sand-200/70 flex flex-col sm:flex-row items-stretch sm:items-center gap-1 p-2">
+                <div className="flex items-center gap-2 px-4 py-2.5 rounded-full hover:bg-sand-100 transition-colors flex-1 min-w-0">
+                  <MapPin size={16} className="shrink-0 text-ink-faint" strokeWidth={1.8} />
+                  <select className="bg-transparent text-sm font-medium text-ink focus-ring rounded w-full truncate">
+                    <option>مشهد</option>
+                    <option>تهران</option>
+                    <option>اصفهان</option>
+                    <option>شیراز</option>
+                  </select>
+                </div>
+                <div className="hidden sm:block w-px h-6 bg-sand-200 shrink-0" />
+                <div className="flex items-center gap-2 px-4 py-2.5 rounded-full hover:bg-sand-100 transition-colors flex-1 min-w-0">
+                  <Users size={16} className="shrink-0 text-ink-faint" strokeWidth={1.8} />
+                  <select className="bg-transparent text-sm font-medium text-ink focus-ring rounded w-full truncate">
+                    <option>۱۰۰ تا ۲۵۰ نفر</option>
+                    <option>تا ۱۰۰ نفر</option>
+                    <option>۲۵۰ تا ۵۰۰ نفر</option>
+                    <option>بیش از ۵۰۰ نفر</option>
+                  </select>
+                </div>
+                <div className="hidden sm:block w-px h-6 bg-sand-200 shrink-0" />
+                <div className="flex items-center gap-2 px-4 py-2.5 rounded-full hover:bg-sand-100 transition-colors flex-1 min-w-0">
+                  <ArrowLeftRight size={16} className="shrink-0 text-ink-faint rotate-90" strokeWidth={1.8} />
+                  <select className="bg-transparent text-sm font-medium text-ink focus-ring rounded w-full truncate">
+                    <option>بودجه نامشخص</option>
+                    <option>اقتصادی</option>
+                    <option>متوسط</option>
+                    <option>لوکس</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="shrink-0 flex items-center justify-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-sand-50 font-medium text-sm px-6 h-12 rounded-full transition-colors focus-ring w-full sm:w-auto"
+                >
+                  <Search size={16} strokeWidth={2} />
+                  جست‌وجو
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
+
+        {/* ============ RESULTS + FILTERS ============ */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+          <CategoryResults venues={categoryVenues} />
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,7 +1,95 @@
 export default function Page() {
   return (
-    <div className="bg-sand-50 text-ink antialiased">
+    <body className="bg-sand-50 text-ink antialiased">
 
+      <header className="sticky top-0 z-50 bg-sand-50/90 backdrop-blur-md border-b border-sand-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            <a href="index.html" className="flex items-center gap-2 focus-ring">
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+                <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
+                <circle cx="15" cy="15" r="5" fill="#1B3E32" />
+              </svg>
+              <span className="text-lg lg:text-xl font-bold tracking-tight">تالارگاه</span>
+            </a>
+
+            <nav className="hidden lg:flex items-center gap-1" aria-label="ناوبری اصلی">
+              <a href="category.html" className="px-4 py-2 rounded-full text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">تالارها</a>
+              <a href="search.html" className="px-4 py-2 rounded-full text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">جست‌وجو</a>
+              <a href="favorites.html" className="px-4 py-2 rounded-full text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">علاقه‌مندی‌ها</a>
+              <a href="about.html" className="px-4 py-2 rounded-full text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">درباره ما</a>
+              <a href="faq.html" className="px-4 py-2 rounded-full text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">سوالات متداول</a>
+              <a href="contact.html" className="px-4 py-2 rounded-full text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">تماس با ما</a>
+            </nav>
+
+            <div className="flex items-center gap-2">
+              <a
+                href="search.html"
+                className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full border border-sand-300 text-sm text-ink-soft hover:border-gold-500 hover:text-ink transition-colors focus-ring"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                جست‌وجوی تالار
+              </a>
+              <button
+                id="mobile-menu-btn"
+                className="lg:hidden p-2.5 rounded-full hover:bg-sand-100 focus-ring"
+                aria-label="باز کردن منو"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+              >
+                <svg
+                  className="icon-open"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+                <svg
+                  className="icon-close hidden"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              </button>
+              <a
+                href="#admin"
+                className="hidden lg:inline text-xs text-ink-faint hover:text-ink-soft transition-colors focus-ring"
+              >ورود مدیر</a>
+            </div>
+          </div>
+        </div>
+        <div id="mobile-menu" className="hidden lg:hidden border-t border-sand-200/80 bg-sand-50">
+          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col" aria-label="ناوبری موبایل">
+            <a href="index.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">خانه</a>
+            <a href="category.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">تالارها</a>
+            <a href="search.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">جست‌وجو</a>
+            <a href="favorites.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">علاقه‌مندی‌ها</a>
+            <a href="about.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">درباره ما</a>
+            <a href="faq.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">سوالات متداول</a>
+            <a href="contact.html" className="px-4 py-3 rounded-xl text-sm text-ink-soft hover:bg-sand-100 hover:text-ink transition-colors focus-ring">تماس با ما</a>
+          </nav>
+        </div>
+      </header>
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 
@@ -93,7 +181,7 @@ export default function Page() {
           <p className="text-sm font-medium mb-3">کارت تالار</p>
           <div className="grid sm:grid-cols-3 gap-4 mb-8">
             <div className="bg-sand-50 rounded-3xl overflow-hidden shadow-soft">
-              <div className="aspect-[4/3] skeleton"></div>
+              <div className="aspect-4/3 skeleton"></div>
               <div className="p-5 space-y-3">
                 <div className="h-4 w-3/4 rounded skeleton"></div>
                 <div className="h-3 w-1/2 rounded skeleton"></div>
@@ -101,7 +189,7 @@ export default function Page() {
               </div>
             </div>
             <div className="bg-sand-50 rounded-3xl overflow-hidden shadow-soft">
-              <div className="aspect-[4/3] skeleton"></div>
+              <div className="aspect-4/3 skeleton"></div>
               <div className="p-5 space-y-3">
                 <div className="h-4 w-3/4 rounded skeleton"></div>
                 <div className="h-3 w-1/2 rounded skeleton"></div>
@@ -109,7 +197,7 @@ export default function Page() {
               </div>
             </div>
             <div className="bg-sand-50 rounded-3xl overflow-hidden shadow-soft hidden sm:block">
-              <div className="aspect-[4/3] skeleton"></div>
+              <div className="aspect-4/3 skeleton"></div>
               <div className="p-5 space-y-3">
                 <div className="h-4 w-3/4 rounded skeleton"></div>
                 <div className="h-3 w-1/2 rounded skeleton"></div>
@@ -163,7 +251,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* ============ 6. GENERIC ERROR ============ */}
+        {/* <!-- ============ 6. GENERIC ERROR ============ --> */}
         <section className="border-t border-sand-200 pt-10">
           <p className="text-xs font-medium text-gold-600 mb-4">۶ · خطای عمومی</p>
           <div className="bg-sand-100/50 rounded-3xl p-8 sm:p-14 text-center">
@@ -185,6 +273,6 @@ export default function Page() {
           </div>
         </section>
       </main>
-    </div>
+    </body>
   );
 }

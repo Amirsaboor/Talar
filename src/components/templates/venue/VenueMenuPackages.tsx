@@ -1,10 +1,6 @@
 import type { VenueDetail } from '@/data/venue-details';
 
-interface Props {
-  packages: VenueDetail['menuPackages'];
-}
-
-export default function VenueMenuPackages({ packages }: Props) {
+export default function VenueMenuPackages({ venue }: { venue: VenueDetail }) {
   return (
     <section className="py-8 border-t border-sand-200">
       <h2 className="text-xl font-semibold mb-2">منوی پذیرایی</h2>
@@ -12,9 +8,9 @@ export default function VenueMenuPackages({ packages }: Props) {
         پکیج‌های زیر قابل سفارشی‌سازی هستند؛ برای دریافت منوی کامل با تالار تماس بگیرید.
       </p>
       <div className="grid sm:grid-cols-3 gap-5">
-        {packages.map((pkg, i) => (
+        {venue.menuPackages.map((pkg) => (
           <div
-            key={i}
+            key={pkg.name}
             className={`rounded-2xl overflow-hidden relative ${
               pkg.featured ? 'border-2 border-gold-500' : 'border border-sand-200'
             }`}
@@ -25,15 +21,10 @@ export default function VenueMenuPackages({ packages }: Props) {
               </span>
             )}
             <div className="aspect-3/2 overflow-hidden">
-              <img
-                src={pkg.image}
-                alt={pkg.name}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover" loading="lazy" />
             </div>
-            <div className="p-4">
-              <h3 className="font-medium text-sm">{pkg.name}</h3>
+            <div className="p-4 min-w-0">
+              <h3 className="font-medium text-sm truncate">{pkg.name}</h3>
               <p className="text-xs text-ink-faint mt-1.5 leading-relaxed">{pkg.description}</p>
               <p className="text-sm font-semibold mt-3 num">{pkg.price}</p>
             </div>

@@ -1,8 +1,8 @@
 // components/FAQSection.tsx
 import { FaqData } from '@/data/faq-data';
-import { PlusIcon } from 'lucide-react';
-import React from 'react';
 import FAQCard from './FAQCard';
+
+const featuredFaqs = FaqData.filter((faq) => faq.featured);
 
 const FAQSection = () => {
   return (
@@ -13,7 +13,7 @@ const FAQSection = () => {
           <h2 className="text-2xl sm:text-3xl font-semibold">پرسش‌های متداول</h2>
         </div>
         <div className="flex flex-col gap-4">
-          {FaqData.map((faq) => (
+          {featuredFaqs.map((faq) => (
            <FAQCard key={faq.id} faq={faq}/>
           ))}
         </div>
