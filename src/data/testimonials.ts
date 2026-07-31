@@ -2,7 +2,7 @@ export const testimonials = [
   {
     id: 1,
     name: "نگار احمدی",
-    city: "تهران",
+    city: "مشهد",
     rate: 5,
     image:
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop",
@@ -11,7 +11,7 @@ export const testimonials = [
   {
     id: 2,
     name: "امیرحسین رضایی",
-    city: "اصفهان",
+    city: "مشهد",
     rate: 5,
     image:
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop",
@@ -20,10 +20,10 @@ export const testimonials = [
   {
     id: 3,
     name: "سارا محمدی",
-    city: "کرج",
+    city: "طرقبه",
     rate: 4,
     image:
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop",
-    text: "فیلتر بودجه خیلی کمک کرد. توانستیم باغ‌تالار خوبی خارج از تهران پیدا کنیم که به‌صرفه‌تر بود.",
+    text: "فیلتر بودجه خیلی کمک کرد. توانستیم باغ‌تالار خوبی نزدیک طرقبه پیدا کنیم که به‌صرفه‌تر بود.",
   },
 ];

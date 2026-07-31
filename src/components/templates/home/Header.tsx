@@ -13,7 +13,7 @@ export default function Header() {
 
                 <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pb-28 sm:pb-24">
                     <p className="text-gold-300 text-sm sm:text-base font-medium tracking-wide mb-4">
-                        بیش از ۲٬۴۰۰ تالار و باغ‌تالار در سراسر ایران
+                        بهترین تالارها و باغ‌تالارهای مشهد، طرقبه و شاندیز
                     </p>
                     <h1 className="text-sand-50 font-extralight text-[2.35rem] leading-[1.2] sm:text-6xl sm:leading-[1.15] lg:text-7xl max-w-3xl">
                         بهترین تالار عروسی‌تان را
@@ -38,11 +38,9 @@ export default function Header() {
                                 id="city"
                                 className="bg-transparent text-sm text-ink focus-ring -mx-1 px-1 rounded"
                             >
-                                <option>تهران</option>
-                                <option>اصفهان</option>
-                                <option>شیراز</option>
                                 <option>مشهد</option>
-                                <option>رشت</option>
+                                <option>طرقبه</option>
+                                <option>شاندیز</option>
                             </select>
                         </div>
                         <div className="flex flex-col gap-1 px-4 py-3 rounded-2xl hover:bg-sand-100 transition-colors sm:border-r sm:border-sand-200">

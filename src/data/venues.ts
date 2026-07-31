@@ -4,7 +4,7 @@ export const Venues = [
     title: 'تالار ایوان طلایی',
     image:
       'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
-    location: 'تهران، سعادت‌آباد',
+    location: 'مشهد، وکیل‌آباد',
     rating: 4.9,
     capacity: '۶۰۰ نفر',
     tags: ['پارکینگ اختصاصی', 'سالن VIP'],
@@ -16,7 +16,7 @@ export const Venues = [
     title: 'سالن مجلل رایا',
     image:
       'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
-    location: 'تهران، تجریش',
+    location: 'مشهد، احمدآباد',
     rating: 4.7,
     capacity: '۴۰۰ نفر',
     tags: ['موزیک لایو', 'کترینگ ممتاز'],
@@ -28,7 +28,7 @@ export const Venues = [
     title: 'تالار گلستان',
     image:
       'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
-    location: 'تهران، ونک',
+    location: 'مشهد، سجاد',
     rating: 4.5,
     capacity: '۳۰۰ نفر',
     tags: ['فضای باز', 'دکوراسیون مدرن'],

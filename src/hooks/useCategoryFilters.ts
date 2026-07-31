@@ -11,6 +11,7 @@ import {
   filterCategoryVenues,
 } from '@/lib/category-filters';
 import { sortVenues, type SearchSortOption } from '@/lib/venue-search';
+import { paginate } from '@/shared/lib/pagination';
 
 const PAGE_SIZE = 9;
 
@@ -67,23 +68,19 @@ export function useCategoryFilters<T extends CategoryVenue>(venues: T[]) {
     [venues, filters, sort]
   );
 
-  const totalPages = Math.max(1, Math.ceil(allResults.length / PAGE_SIZE));
-  // اگر بعد از تغییر فیلتر تعداد صفحات کم شد، صفحه فعلی را در بازه معتبر نگه می‌داریم
-  const currentPage = Math.min(page, totalPages);
-
   // با هر تغییر فیلتر یا مرتب‌سازی، نتایج عوض می‌شود، پس باید به صفحه اول برگردیم
   useEffect(() => {
     setPageState(1);
   }, [filters, sort]);
 
-  const setPage = (next: number) => {
-    setPageState(Math.min(Math.max(1, next), totalPages));
-  };
-
-  const results = useMemo(
-    () => allResults.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
-    [allResults, currentPage]
+  const paginated = useMemo(
+    () => paginate(allResults, page, PAGE_SIZE),
+    [allResults, page]
   );
+
+  const setPage = (next: number) => {
+    setPageState(Math.min(Math.max(1, next), paginated.totalPages));
+  };
 
   const count = useMemo(() => activeFilterCount(filters), [filters]);
 
@@ -101,10 +98,10 @@ export function useCategoryFilters<T extends CategoryVenue>(venues: T[]) {
     activeCount: count,
     sort,
     setSort,
-    results,
-    totalCount: allResults.length,
-    page: currentPage,
-    totalPages,
+    results: paginated.items,
+    totalCount: paginated.totalCount,
+    page: paginated.page,
+    totalPages: paginated.totalPages,
     setPage,
   };
 }

@@ -17,7 +17,7 @@ export const searchSortOptions: { value: SearchSortOption; label: string }[] = [
   { value: 'price-desc', label: 'گران‌ترین' },
 ];
 
-/** استخراج نام شهر از رشته موقعیت مکانی، مثل «تهران، سعادت‌آباد» -> «تهران» */
+/** استخراج نام شهر از رشته موقعیت مکانی، مثل «مشهد، وکیل‌آباد» -> «مشهد» */
 export function cityOf(location: string): string {
   return location.split('،')[0].trim();
 }
@@ -49,16 +49,6 @@ export function matchesQuery(venue: SearchableVenue, query: string): boolean {
   const q = query.trim();
   if (!q) return true;
   return venue.title.includes(q) || venue.location.includes(q);
-}
-
-export function filterVenues<T extends SearchableVenue & { location: string }>(
-  venues: T[],
-  { query, city }: { query: string; city: string }
-): T[] {
-  return venues.filter((v) => {
-    const matchesCity = city === 'all' || cityOf(v.location) === city;
-    return matchesCity && matchesQuery(v, query);
-  });
 }
 
 export function sortVenues<T extends SearchableVenue>(

@@ -31,7 +31,7 @@ export const contactSubjects = [
 ];
 
 export const officeInfo = {
-  address: 'تهران، خیابان ولیعصر، بالاتر از پارک ملت، برج نگین، طبقه ۸',
+  address: 'مشهد، بلوار وکیل‌آباد، نبش وکیل‌آباد ۲۱، برج نگین، طبقه ۸',
   mapImage:
     'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1200&auto=format&fit=crop',
   parkingNote: 'پارکینگ عمومی برج نگین در دسترس است؛ ورود از خیابان فرعی سمت راست ساختمان.',

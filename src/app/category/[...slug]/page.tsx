@@ -1,18 +1,10 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { MapPin, Users, ArrowLeftRight, Search } from 'lucide-react';
 import Footer from '@/components/modules/layout/Footer';
 import CategoryResults from '@/components/templates/category/CategoryResults';
 import { categoryVenues } from '@/data/category-venues';
-
-const cityLabels: Record<string, string> = {
-  tehran: 'تهران',
-  isfahan: 'اصفهان',
-  shiraz: 'شیراز',
-  rasht: 'رشت',
-  mashhad: 'مشهد',
-  karaj: 'کرج',
-  shahriar: 'شهریار',
-};
+import { cityNameFromSlug, isAllowedCitySlug } from '@/shared/config/site.config';
 
 const categoryLabels: Record<string, string> = {
   '1': 'تالار پذیرایی',
@@ -29,14 +21,17 @@ const categoryLabels: Record<string, string> = {
 };
 
 function resolveCategory(slug: string[]) {
-  // /category/city/tehran -> city page
+  // /category/city/mashhad -> city page؛ فقط شهرهای مجاز (site.config) پذیرفته می‌شوند
   if (slug[0] === 'city' && slug[1]) {
-    const city = cityLabels[slug[1]] ?? slug[1];
+    if (!isAllowedCitySlug(slug[1])) {
+      notFound();
+    }
+    const city = cityNameFromSlug(slug[1]) as string;
     return {
       title: `تالارها و باغ‌تالارهای ${city}`,
       breadcrumb: city,
       subtitle: `از تالارهای سنتی تا باغ‌تالارهای مدرن؛ گزینه‌های متنوعی برای مراسم شما در ${city}.`,
-      eyebrow: `${city}، ایران`,
+      eyebrow: `${city}، خراسان رضوی`,
     };
   }
 
@@ -57,7 +52,7 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params;
   const { title, breadcrumb, subtitle, eyebrow } = resolveCategory(slug ?? []);
-  const resultCount = String(categoryVenues.length * 28); // نمایشی
+  const resultCount = String(categoryVenues.length); // عدد واقعی؛ نسخه قبلی «* ۲۸» بود و ساختگی
 
   return (
     <div className="bg-sand-50 text-ink antialiased">
@@ -119,9 +114,8 @@ export default async function CategoryPage({
                   <MapPin size={16} className="shrink-0 text-ink-faint" strokeWidth={1.8} />
                   <select className="bg-transparent text-sm font-medium text-ink focus-ring rounded w-full truncate">
                     <option>مشهد</option>
-                    <option>تهران</option>
-                    <option>اصفهان</option>
-                    <option>شیراز</option>
+                    <option>طرقبه</option>
+                    <option>شاندیز</option>
                   </select>
                 </div>
                 <div className="hidden sm:block w-px h-6 bg-sand-200 shrink-0" />

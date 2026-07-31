@@ -8,7 +8,7 @@ export default function OfficeLocation() {
       <div className="rounded-2xl overflow-hidden aspect-4/3 relative mb-4">
         <img
           src={officeInfo.mapImage}
-          alt="نقشه موقعیت دفتر مرکزی تالارگاه در تهران"
+          alt="نقشه موقعیت دفتر مرکزی تالارگاه در مشهد"
           className="w-full h-full object-cover"
           loading="lazy"
         />

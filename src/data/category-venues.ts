@@ -4,7 +4,7 @@ export const categoryVenues = [
     title: 'تالار ایوان طلایی',
     image:
       'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
-    location: 'تهران، سعادت‌آباد',
+    location: 'مشهد، وکیل‌آباد',
     rating: '۴.۹',
     ratingCount: '۲۱۴',
     capacity: '۶۰۰ نفر',
@@ -18,7 +18,7 @@ export const categoryVenues = [
     title: 'باغ‌تالار نارنجستان',
     image:
       'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
-    location: 'کرج، ملارد',
+    location: 'طرقبه',
     rating: '۴.۸',
     ratingCount: '۱۵۸',
     capacity: '۴۰۰ نفر',
@@ -32,7 +32,7 @@ export const categoryVenues = [
     title: 'تالار افرا سفید',
     image:
       'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
-    location: 'اصفهان، چهارباغ',
+    location: 'مشهد، کوه‌سنگی',
     rating: '۵.۰',
     ratingCount: '۹۶',
     capacity: '۸۵۰ نفر',
@@ -46,7 +46,7 @@ export const categoryVenues = [
     title: 'تالار نگین سبز',
     image:
       'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
-    location: 'کرج',
+    location: 'مشهد، عبدالمطلب',
     rating: '۴.۶',
     ratingCount: '۷۲',
     capacity: '۲۰۰ نفر',
@@ -60,7 +60,7 @@ export const categoryVenues = [
     title: 'سالن باران',
     image:
       'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
-    location: 'تهران، شرق',
+    location: 'مشهد، هاشمی‌نژاد',
     rating: '۴.۴',
     ratingCount: '۴۴',
     capacity: '۳۰۰ نفر',
@@ -74,7 +74,7 @@ export const categoryVenues = [
     title: 'باغ سرو',
     image:
       'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
-    location: 'شهریار',
+    location: 'شاندیز',
     rating: '۴.۷',
     ratingCount: '۶۱',
     capacity: '۲۵۰ نفر',

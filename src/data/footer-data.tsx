@@ -4,7 +4,7 @@ import { FaInstagram } from 'react-icons/fa';
 export const FooterData = {
   brand: {
     name: 'تالارگاه',
-    description: 'مرجع کشف و انتخاب تالار عروسی در سراسر ایران.',
+    description: 'مرجع کشف و انتخاب تالار عروسی در مشهد، طرقبه و شاندیز.',
     logo: (
       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
         <path d="M15 2 L26 9 V21 L15 28 L4 21 V9 Z" stroke="#B8863E" strokeWidth="1.4" />
@@ -25,15 +25,14 @@ export const FooterData = {
     {
       title: 'شهرها',
       links: [
-        { label: 'تهران', href: '/cities/tehran' },
-        { label: 'اصفهان', href: '/cities/isfahan' },
-        { label: 'شیراز', href: '/cities/shiraz' },
-        { label: 'مشهد', href: '/cities/mashhad' },
+        { label: 'مشهد', href: '/category/city/mashhad' },
+        { label: 'طرقبه', href: '/category/city/torghabeh' },
+        { label: 'شاندیز', href: '/category/city/shandiz' },
       ],
     },
     {
       title: 'تماس با ما',
-      info: ['۰۲۱-۹۱۰۰۰۰۰۰', 'info@talargah.ir', 'تهران، خیابان ولیعصر'],
+      info: ['۰۲۱-۹۱۰۰۰۰۰۰', 'info@talargah.ir', 'مشهد، بلوار وکیل‌آباد'],
     },
   ],
   socials: [

@@ -14,7 +14,7 @@ export const luxuryCollection = {
   },
   stats: [
     { id: 1, value: '۹۵٪', label: 'رضایت مهمانان از خدمات لوکس' },
-    { id: 2, value: '۴۸', label: 'تالار منتخب در سطح کشور' },
+    { id: 2, value: '۴۸', label: 'تالار منتخب در مشهد، طرقبه و شاندیز' },
   ],
   ctaHref: '/category/luxury',
   ctaLabel: 'مشاهده مجموعه لوکس',

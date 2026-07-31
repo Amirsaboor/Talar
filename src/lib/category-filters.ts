@@ -15,7 +15,7 @@ export interface CategoryVenue {
 }
 
 /** مناطق قابل انتخاب برای فیلتر (تطبیق به‌صورت زیررشته با location هر تالار) */
-export const AREA_OPTIONS = ['سعادت‌آباد', 'ولنجک', 'پاسداران', 'شرق تهران'];
+export const AREA_OPTIONS = ['وکیل‌آباد', 'احمدآباد', 'سجاد', 'کوه‌سنگی', 'عبدالمطلب', 'هاشمی‌نژاد', 'طرقبه', 'شاندیز'];
 
 export interface CapacityOption {
   label: string;
@@ -99,26 +99,12 @@ export function capacityLabel(min: number, max: number): string {
 }
 
 /**
- * فهرست شماره صفحات قابل‌نمایش در پجینیشن را برمی‌گرداند.
- * همیشه صفحه اول/آخر و بازه‌ای اطراف صفحه فعلی نشان داده می‌شود؛ فاصله‌های بزرگ با '…' جایگزین می‌شوند.
+ * فهرست شماره صفحات قابل‌نمایش در پجینیشن.
+ * پیاده‌سازی واقعی در PaginationHelper مشترک (`@/shared/lib/pagination`) است؛
+ * اینجا فقط برای سازگاری با importهای فعلی (`@/lib/category-filters`) دوباره صادر می‌شود
+ * تا فقط یک نسخه از این منطق در کل پروژه وجود داشته باشد.
  */
-export function paginationRange(current: number, total: number): (number | 'ellipsis')[] {
-  if (total <= 7) {
-    return Array.from({ length: total }, (_, i) => i + 1);
-  }
-
-  const pages = new Set<number>([1, total, current - 1, current, current + 1]);
-  const sorted = Array.from(pages)
-    .filter((p) => p >= 1 && p <= total)
-    .sort((a, b) => a - b);
-
-  const result: (number | 'ellipsis')[] = [];
-  sorted.forEach((p, i) => {
-    if (i > 0 && p - sorted[i - 1] > 1) result.push('ellipsis');
-    result.push(p);
-  });
-  return result;
-}
+export { paginationRange } from '@/shared/lib/pagination';
 
 export function activeFilterCount(filters: CategoryFiltersState): number {
   return (

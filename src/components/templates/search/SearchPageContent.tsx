@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import SearchFilters from './SearchFilters';
 import SearchResultsGrid from './SearchResultsGrid';
 import NoSearchResultsState from '@/components/modules/empty-states/NoSearchResultsState';
+import Pagination from '@/components/modules/pagination/Pagination';
 import { useVenueSearch } from '@/hooks/useVenueSearch';
 
 export default function SearchPageContent() {
@@ -17,6 +18,10 @@ export default function SearchPageContent() {
     sort,
     setSort,
     results,
+    totalCount,
+    page,
+    totalPages,
+    setPage,
     suggestions,
     recentSearches,
   } = useVenueSearch();
@@ -42,7 +47,7 @@ export default function SearchPageContent() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <SearchFilters
-          resultCount={results.length}
+          resultCount={totalCount}
           city={city}
           cities={cities}
           onCityChange={setCity}
@@ -58,7 +63,10 @@ export default function SearchPageContent() {
             }}
           />
         ) : (
-          <SearchResultsGrid venues={results} />
+          <>
+            <SearchResultsGrid venues={results} />
+            <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
+          </>
         )}
       </div>
     </>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface Props {
     category: {
-        id: string;
+        id: number | string;
         href: string;
         name: string;
         icon: React.ElementType;

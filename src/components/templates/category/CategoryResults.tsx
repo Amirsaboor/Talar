@@ -1,15 +1,16 @@
 'use client';
 
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import { toPersianDigits } from '@/lib/persian-numbers';
 import { useCategoryFilters } from '@/hooks/useCategoryFilters';
 import { searchSortOptions } from '@/lib/venue-search';
-import { capacityLabel, paginationRange, type CategoryVenue } from '@/lib/category-filters';
+import { capacityLabel, type CategoryVenue } from '@/lib/category-filters';
 import NoSearchResultsState from '@/components/modules/empty-states/NoSearchResultsState';
 import EmptyCategoryState from '@/components/modules/empty-states/EmptyCategoryState';
 import FilterSidebar from './FilterSidebar';
 import MobileFilterSheet from './MobileFilterSheet';
 import CategoryVenueCard from './CategoryVenueCard';
+import Pagination from '@/components/modules/pagination/Pagination';
 
 interface Chip {
   key: string;
@@ -165,51 +166,7 @@ export default function CategoryResults({ venues }: { venues: CategoryVenue[] })
               ))}
             </div>
 
-            {totalPages > 1 && (
-              <nav
-                aria-label="صفحه‌بندی نتایج"
-                className="flex items-center justify-center gap-2 mt-12"
-              >
-                <button
-                  onClick={() => setPage(page - 1)}
-                  disabled={page === 1}
-                  className="w-11 h-11 rounded-full border border-sand-300 flex items-center justify-center text-ink-faint hover:border-ink hover:text-ink transition-colors focus-ring disabled:opacity-40"
-                  aria-label="صفحه قبل"
-                >
-                  <ChevronRight size={16} />
-                </button>
-
-                {paginationRange(page, totalPages).map((p, i) =>
-                  p === 'ellipsis' ? (
-                    <span key={`ellipsis-${i}`} className="px-1 text-ink-faint">
-                      …
-                    </span>
-                  ) : (
-                    <button
-                      key={p}
-                      onClick={() => setPage(p)}
-                      aria-current={p === page ? 'page' : undefined}
-                      className={`w-11 h-11 rounded-full text-sm font-medium num focus-ring transition-colors ${
-                        p === page
-                          ? 'bg-emerald-800 text-sand-50'
-                          : 'text-ink-soft hover:bg-sand-100'
-                      }`}
-                    >
-                      {toPersianDigits(p)}
-                    </button>
-                  )
-                )}
-
-                <button
-                  onClick={() => setPage(page + 1)}
-                  disabled={page === totalPages}
-                  className="w-11 h-11 rounded-full border border-sand-300 flex items-center justify-center text-ink-soft hover:border-ink hover:text-ink transition-colors focus-ring disabled:opacity-40"
-                  aria-label="صفحه بعد"
-                >
-                  <ChevronLeft size={16} />
-                </button>
-              </nav>
-            )}
+            <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
           </>
         ) : (
           <NoSearchResultsState onClearFilters={clearAll} />
