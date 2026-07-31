@@ -1,49 +1,13 @@
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import { MapPin, Users, ArrowLeftRight, Search } from 'lucide-react';
 import Footer from '@/components/modules/layout/Footer';
 import CategoryResults from '@/components/templates/category/CategoryResults';
 import { categoryVenues } from '@/data/category-venues';
-import { cityNameFromSlug, isAllowedCitySlug } from '@/shared/config/site.config';
-
-const categoryLabels: Record<string, string> = {
-  '1': 'تالار پذیرایی',
-  '2': 'باغ‌تالار',
-  '3': 'تشریفات',
-  '4': 'آتلیه عکاسی',
-  '5': 'مزون لباس',
-  '6': 'آرایشگاه عروس',
-  '7': 'گل‌آرایی',
-  '8': 'گروه موسیقی',
-  all: 'همه تالارها',
-  luxury: 'مجموعه لوکس',
-  economy: 'مجموعه اقتصادی',
-};
-
-function resolveCategory(slug: string[]) {
-  // /category/city/mashhad -> city page؛ فقط شهرهای مجاز (site.config) پذیرفته می‌شوند
-  if (slug[0] === 'city' && slug[1]) {
-    if (!isAllowedCitySlug(slug[1])) {
-      notFound();
-    }
-    const city = cityNameFromSlug(slug[1]) as string;
-    return {
-      title: `تالارها و باغ‌تالارهای ${city}`,
-      breadcrumb: city,
-      subtitle: `از تالارهای سنتی تا باغ‌تالارهای مدرن؛ گزینه‌های متنوعی برای مراسم شما در ${city}.`,
-      eyebrow: `${city}، خراسان رضوی`,
-    };
-  }
-
-  const key = slug[0] ?? 'all';
-  const label = categoryLabels[key] ?? 'تالارها';
-  return {
-    title: label,
-    breadcrumb: label,
-    subtitle: 'مکان‌ها و خدماتی که با فیلترهای زیر می‌توانید به دقیق‌ترین انتخاب برسید.',
-    eyebrow: 'دسته‌بندی',
-  };
-}
+import { resolveCategoryRoute } from '@/lib/resolve-category-route';
+import JsonLd from '@/components/modules/json-ld/JsonLd';
+import { buildCollectionPageSchema } from '@/shared/seo/schema/collection-page';
+import { buildBreadcrumbSchema } from '@/shared/seo/schema/breadcrumb';
+export { generateMetadata } from './metadata';
 
 export default async function CategoryPage({
   params,
@@ -51,11 +15,32 @@ export default async function CategoryPage({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const { title, breadcrumb, subtitle, eyebrow } = resolveCategory(slug ?? []);
+  const { title, breadcrumb, subtitle, eyebrow } = resolveCategoryRoute(slug ?? []);
   const resultCount = String(categoryVenues.length); // عدد واقعی؛ نسخه قبلی «* ۲۸» بود و ساختگی
+  const path = `/category/${(slug ?? []).join('/')}`;
 
   return (
     <div className="bg-sand-50 text-ink antialiased">
+      {/*
+        نکته: itemList دقیقاً همان categoryVenues کامل است که CategoryResults هم می‌گیرد —
+        یعنی همان باگ شناخته‌شده («صفحه شهر/دسته‌بندی هنوز واقعاً بر اساس شهر/دسته فیلتر
+        نمی‌شود») اینجا هم منعکس می‌شود. عمداً یک ItemList «درست‌شده» نساختم، چون Structured
+        Data باید با محتوای واقعی صفحه یکی باشد؛ وقتی آن باگ رفع شد این خودکار درست می‌شود.
+      */}
+      <JsonLd
+        data={buildCollectionPageSchema({
+          name: title,
+          description: subtitle,
+          path,
+          items: categoryVenues.map((v) => ({ name: v.title, path: v.href })),
+        })}
+      />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'خانه', path: '/' },
+          { name: breadcrumb, path },
+        ])}
+      />
       <main id="main">
         {/* ============ BREADCRUMB ============ */}
         <nav aria-label="مسیر صفحه" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">

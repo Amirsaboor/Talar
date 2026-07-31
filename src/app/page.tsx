@@ -11,7 +11,20 @@ import EconomySection from '@/components/templates/home/economy/EconomySection';
 import LuxurySection from '@/components/templates/home/luxury/LuxurySection';
 import WhyChooseSection from '@/components/templates/home/whyChoose/WhyChooseSection';
 import { getCategoryRepository, getVenueRepository } from '@/data-access';
+import { buildMetadata } from '@/shared/seo/metadata';
+import { siteConfig } from '@/shared/config/site.config';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+// آمار واقعی (نه عدد ثابت) در description صفحه اصلی
+export function generateMetadata(): Metadata {
+  const total = getVenueRepository().count();
+  return buildMetadata({
+    title: `${siteConfig.name} | کشف و انتخاب بهترین تالارها و باغ‌تالارهای مشهد، طرقبه و شاندیز`,
+    description: `${total} تالار و باغ‌تالار در مشهد، طرقبه و شاندیز — مقایسه کنید، فیلتر کنید و بدون نیاز به ثبت‌نام با مکان موردنظر خود تماس بگیرید.`,
+    path: '/',
+  });
+}
 
 export default function Page() {
   const categories = getCategoryRepository().findAll();
