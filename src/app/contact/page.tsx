@@ -1,9 +1,18 @@
+import type { Metadata } from 'next';
+import { buildMetadata } from '@/shared/seo/metadata';
 import ContactHero from '@/components/templates/contact/ContactHero';
 import ContactChannels from '@/components/templates/contact/ContactChannels';
 import ContactForm from '@/components/templates/contact/ContactForm';
 import OfficeLocation from '@/components/templates/contact/OfficeLocation';
 import ContactFaqPreview from '@/components/templates/contact/ContactFaqPreview';
 import ContactFinalCta from '@/components/templates/contact/ContactFinalCta';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'تماس با ما',
+  description:
+    'راه‌های ارتباطی با تیم تالارگاه؛ پرسش، پیشنهاد یا درخواست همکاری خود را برای ما بفرستید.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

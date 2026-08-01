@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { buildMetadata } from '@/shared/seo/metadata';
 import Footer from '@/components/modules/layout/Footer';
 import VenueBreadcrumb from '@/components/templates/venue/VenueBreadcrumb';
 import VenueGallery from '@/components/templates/venue/VenueGallery';
@@ -19,10 +20,17 @@ import VenueBookingSidebar from '@/components/templates/venue/VenueBookingSideba
 import VenueMobileCta from '@/components/templates/venue/VenueMobileCta';
 import SimilarVenuesSection from '@/components/templates/venue/SimilarVenuesSection';
 import VenueFinalCta from '@/components/templates/venue/VenueFinalCta';
-import { venueDetails, venueSlugs } from '@/data/venue-details';
+import { venueDetails } from '@/data/venue-details';
+import { getVenueRepository } from '@/data-access/repositories/venue.repository';
+import JsonLd from '@/components/modules/json-ld/JsonLd';
+import { buildVenueSchema } from '@/shared/seo/schema/venue';
+import { buildBreadcrumbSchema } from '@/shared/seo/schema/breadcrumb';
+import { buildFaqSchema } from '@/shared/seo/schema/faq';
 
 export function generateStaticParams() {
-  return venueSlugs.map((slug) => ({ slug }));
+  return getVenueRepository()
+    .getAllSlugs()
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -31,12 +39,14 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const venue = venueDetails[slug];
+  const venue = getVenueRepository().findBySlug(slug);
   if (!venue) return {};
-  return {
-    title: `${venue.title} | تالارگاه`,
+  return buildMetadata({
+    title: venue.title,
     description: venue.about[0],
-  };
+    path: `/venue/${slug}`,
+    image: venue.images?.[0],
+  });
 }
 
 export default async function VenuePage({
@@ -55,6 +65,15 @@ export default async function VenuePage({
 
   return (
     <div className="bg-sand-50 text-ink antialiased pb-24 lg:pb-0">
+      <JsonLd data={buildVenueSchema(venue, slug)} />
+      <JsonLd
+        data={buildBreadcrumbSchema([
+          { name: 'خانه', path: '/' },
+          { name: venue.category, path: '/category/all' },
+          { name: venue.title, path: `/venue/${slug}` },
+        ])}
+      />
+      {venue.faqs.length > 0 && <JsonLd data={buildFaqSchema(venue.faqs)} />}
       <main id="main">
         <VenueBreadcrumb venue={venue} />
 

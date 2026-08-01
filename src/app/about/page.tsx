@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/shared/seo/metadata';
 import Footer from '@/components/modules/layout/Footer';
 import Divider from '@/components/modules/divider';
 import AboutHero from '@/components/templates/about/AboutHero';
@@ -20,11 +21,12 @@ import { teamMembers } from '@/data/team';
 import { partners } from '@/data/partners';
 import { aboutFaqs } from '@/data/about-faq';
 
-export const metadata: Metadata = {
-  title: 'درباره تالارگاه | مرجع کشف و انتخاب تالار عروسی',
+export const metadata: Metadata = buildMetadata({
+  title: 'درباره ما',
   description:
     'تالارگاه چطور شکل گرفت، مأموریت و ارزش‌های ما، و تیمی که پشت این پلتفرم ایستاده‌اند.',
-};
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (

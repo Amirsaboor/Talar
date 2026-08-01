@@ -32,6 +32,19 @@ export const CAPACITY_OPTIONS: CapacityOption[] = [
 
 export const SPACE_OPTIONS = ['فضای باز', 'فضای بسته'];
 
+export interface BudgetTier {
+  label: string;
+  min: number;
+  max: number;
+}
+
+/** بازه‌های قیمتی بر اساس پراکندگی واقعی قیمت‌های داده نمونه (میلیون تومان) */
+export const BUDGET_TIERS: BudgetTier[] = [
+  { label: 'اقتصادی', min: 0, max: 300 },
+  { label: 'متوسط', min: 300, max: 700 },
+  { label: 'لوکس', min: 700, max: Infinity },
+];
+
 export const AMENITY_OPTIONS = [
   'پارکینگ',
   'تشریفات و پذیرایی',
