@@ -1,5 +1,8 @@
 import { notFound } from 'next/navigation';
 import { cityNameFromSlug, isAllowedCitySlug } from '@/shared/config/site.config';
+import { getVenueRepository } from '@/data-access/repositories/venue.repository';
+import { parsePersianNumber } from './persian-numbers';
+import { BUDGET_TIERS, type CategoryVenue } from './category-filters';
 
 export const categoryLabels: Record<string, string> = {
   '1': 'تالار پذیرایی',
@@ -57,4 +60,37 @@ export function resolveCategoryRoute(slug: string[]): ResolvedCategoryRoute {
     subtitle: 'مکان‌ها و خدماتی که با فیلترهای زیر می‌توانید به دقیق‌ترین انتخاب برسید.',
     eyebrow: 'دسته‌بندی',
   };
+}
+
+/**
+ * لیست واقعیِ تالارهای متعلق به یک مسیر (شهر یا دسته‌بندی). این تابع همان چیزی‌ست که قبلاً
+ * وجود نداشت: قبلاً هر مسیری (`/category/1`، `/category/city/mashhad`، `/category/luxury`)
+ * دقیقاً همان آرایه کامل categoryVenues را نشان می‌داد، چون VenueRepository.findAll هم
+ * پارامتر categoryId را (با این‌که در Interface تعریف شده بود) عملاً نادیده می‌گرفت.
+ * آن باگ اینجا و در findAll دو جا با هم رفع شد.
+ *
+ * luxury/economy Entity واقعی در Repository ندارند (مثل ۱ تا ۸ که categoryId مشخص دارند)؛
+ * تعریف‌شان همان بازه قیمتی BUDGET_TIERS است که در Hero و نوار سرچ Category هم استفاده می‌شود
+ * — یک تعریف، همه‌جا یکسان.
+ */
+export function resolveCategoryVenues(route: ResolvedCategoryRoute): CategoryVenue[] {
+  if (route.kind === 'city') {
+    return getVenueRepository().findAll({ city: route.key });
+  }
+
+  if (route.key === 'all') {
+    return getVenueRepository().findAll();
+  }
+
+  if (route.key === 'luxury' || route.key === 'economy') {
+    const tier = BUDGET_TIERS.find((t) => t.label === (route.key === 'luxury' ? 'لوکس' : 'اقتصادی'))!;
+    return getVenueRepository()
+      .findAll()
+      .filter((v) => {
+        const price = parsePersianNumber(v.price);
+        return price >= tier.min && price <= tier.max;
+      });
+  }
+
+  return getVenueRepository().findAll({ categoryId: Number(route.key) });
 }

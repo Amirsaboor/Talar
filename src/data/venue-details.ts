@@ -43,15 +43,15 @@ export interface VenueDetail {
 }
 
 const img1 =
-  'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop';
+  '/images/1.webp';
 const img2 =
-  'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop';
+  '/images/2.webp';
 const img3 =
-  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2200&auto=format&fit=crop';
+  '/images/3.webp';
 const img4 =
-  'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2200&auto=format&fit=crop';
+  '/images/4.webp';
 const img5 =
-  'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2200&auto=format&fit=crop';
+  '/images/5.webp';
 
 const commonFaqs = (rentLabel: string) => [
   {

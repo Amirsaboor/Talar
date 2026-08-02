@@ -56,3 +56,13 @@ export function cityNameFromSlug(slug: string): string | null {
   const entry = Object.entries(cityMeta).find(([, meta]) => meta.slug === slug);
   return entry ? entry[0] : null;
 }
+
+/**
+ * مسیر نسبی را به URL کامل تبدیل می‌کند. Next Metadata API (title/OG/canonical) خودش با
+ * metadataBase این کار را می‌کند، ولی JSON-LD خام (schema.org) این رفتار خودکار را ندارد؛
+ * هر Builder که مقدار image/url داخل JSON-LD می‌گذارد باید از همین تابع استفاده کند.
+ */
+export function toAbsoluteUrl(path: string): string {
+  if (/^https?:\/\//.test(path)) return path;
+  return `${siteConfig.url}${path.startsWith('/') ? path : `/${path}`}`;
+}

@@ -37,7 +37,7 @@ export default function Header() {
     <section className="relative">
       <div className="relative h-[86vh] min-h-140 sm:h-[80vh] overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop"
+          src="/images/banner.webp"
           alt="باغ‌تالار عروسی با نورپردازی گرم در غروب"
           className="absolute inset-0 w-full h-full object-cover"
         />

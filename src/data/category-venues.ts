@@ -2,8 +2,9 @@ export const categoryVenues = [
   {
     id: 1,
     title: 'تالار ایوان طلایی',
+    categoryId: 1, // تالار پذیرایی
     image:
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
+      '/images/3.webp',
     location: 'مشهد، وکیل‌آباد',
     rating: '۴.۹',
     ratingCount: '۲۱۴',
@@ -16,8 +17,9 @@ export const categoryVenues = [
   {
     id: 2,
     title: 'باغ‌تالار نارنجستان',
+    categoryId: 2, // باغ‌تالار
     image:
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
+      '/images/4.webp',
     location: 'طرقبه',
     rating: '۴.۸',
     ratingCount: '۱۵۸',
@@ -30,8 +32,9 @@ export const categoryVenues = [
   {
     id: 3,
     title: 'تالار افرا سفید',
+    categoryId: 1, // تالار پذیرایی
     image:
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
+      '/images/5.webp',
     location: 'مشهد، کوه‌سنگی',
     rating: '۵.۰',
     ratingCount: '۹۶',
@@ -44,8 +47,9 @@ export const categoryVenues = [
   {
     id: 4,
     title: 'تالار نگین سبز',
+    categoryId: 1, // تالار پذیرایی
     image:
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
+      '/images/6.webp',
     location: 'مشهد، عبدالمطلب',
     rating: '۴.۶',
     ratingCount: '۷۲',
@@ -58,8 +62,9 @@ export const categoryVenues = [
   {
     id: 5,
     title: 'سالن باران',
+    categoryId: 1, // تالار پذیرایی
     image:
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
+      '/images/1.webp',
     location: 'مشهد، هاشمی‌نژاد',
     rating: '۴.۴',
     ratingCount: '۴۴',
@@ -72,8 +77,9 @@ export const categoryVenues = [
   {
     id: 6,
     title: 'باغ سرو',
+    categoryId: 2, // باغ‌تالار
     image:
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
+      '/images/2.webp',
     location: 'شاندیز',
     rating: '۴.۷',
     ratingCount: '۶۱',

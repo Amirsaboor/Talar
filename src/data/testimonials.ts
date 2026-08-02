@@ -5,7 +5,7 @@ export const testimonials = [
     city: "مشهد",
     rate: 5,
     image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop",
+      "/images/4.webp",
     text: "در کمتر از یک هفته سه تالار مناسب بودجه‌مان را پیدا و مقایسه کردیم. کل روند خیلی ساده‌تر از چیزی بود که فکرش را می‌کردیم.",
   },
   {
@@ -14,7 +14,7 @@ export const testimonials = [
     city: "مشهد",
     rate: 5,
     image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop",
+      "/images/5.webp",
     text: "عکس‌ها و قیمت‌ها دقیقاً همان چیزی بود که وقتی از تالار بازدید کردیم دیدیم. هیچ غافلگیری بدی نداشتیم.",
   },
   {
@@ -23,7 +23,7 @@ export const testimonials = [
     city: "طرقبه",
     rate: 4,
     image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop",
+      "/images/6.webp",
     text: "فیلتر بودجه خیلی کمک کرد. توانستیم باغ‌تالار خوبی نزدیک طرقبه پیدا کنیم که به‌صرفه‌تر بود.",
   },
 ];

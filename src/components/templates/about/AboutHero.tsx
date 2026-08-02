@@ -2,7 +2,7 @@ export default function AboutHero() {
   return (
     <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop"
+        src="/images/2.webp"
         alt="جشن عروسی در باغ‌تالاری با نورپردازی شبانه"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"

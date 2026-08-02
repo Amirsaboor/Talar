@@ -2,7 +2,7 @@ export default function ContactHero() {
   return (
     <section className="relative h-64 sm:h-80 overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2200&auto=format&fit=crop"
+        src="/images/1.webp"
         alt="تیم پشتیبانی در حال پاسخ‌گویی به تماس مشتریان"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
