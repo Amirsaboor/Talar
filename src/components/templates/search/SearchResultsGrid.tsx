@@ -1,11 +1,7 @@
 import CategoryVenueCard from '@/components/templates/category/CategoryVenueCard';
-import type { categoryVenues } from '@/data/category-venues';
+import type { CategoryVenue } from '@/lib/category-filters';
 
-export default function SearchResultsGrid({
-  venues,
-}: {
-  venues: (typeof categoryVenues)[number][];
-}) {
+export default function SearchResultsGrid({ venues }: { venues: CategoryVenue[] }) {
   return (
     <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
       {venues.map((venue) => (

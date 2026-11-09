@@ -50,6 +50,10 @@ class InMemoryVenueRepository implements VenueRepository {
       result = result.filter((v) => cityOf(v.location) === params.city);
     }
 
+    if (params.categoryId != null) {
+      result = result.filter((v) => String(v.categoryId) === String(params.categoryId));
+    }
+
     if (params.sort) {
       result = sortVenues(result, params.sort);
     }

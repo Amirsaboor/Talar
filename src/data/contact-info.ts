@@ -33,7 +33,7 @@ export const contactSubjects = [
 export const officeInfo = {
   address: 'مشهد، بلوار وکیل‌آباد، نبش وکیل‌آباد ۲۱، برج نگین، طبقه ۸',
   mapImage:
-    'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1200&auto=format&fit=crop',
+    '/images/1.webp',
   parkingNote: 'پارکینگ عمومی برج نگین در دسترس است؛ ورود از خیابان فرعی سمت راست ساختمان.',
   directionsHref: 'https://maps.google.com',
 };

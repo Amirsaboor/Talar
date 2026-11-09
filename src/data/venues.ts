@@ -3,7 +3,7 @@ export const Venues = [
     id: 1,
     title: 'تالار ایوان طلایی',
     image:
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
+      '/images/4.webp',
     location: 'مشهد، وکیل‌آباد',
     rating: 4.9,
     capacity: '۶۰۰ نفر',
@@ -15,7 +15,7 @@ export const Venues = [
     id: 2,
     title: 'سالن مجلل رایا',
     image:
-      'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2200&auto=format&fit=crop',
+      '/images/5.webp',
     location: 'مشهد، احمدآباد',
     rating: 4.7,
     capacity: '۴۰۰ نفر',
@@ -27,7 +27,7 @@ export const Venues = [
     id: 3,
     title: 'تالار گلستان',
     image:
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2200&auto=format&fit=crop',
+      '/images/6.webp',
     location: 'مشهد، سجاد',
     rating: 4.5,
     capacity: '۳۰۰ نفر',

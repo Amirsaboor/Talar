@@ -1,14 +1,12 @@
 import type { NextConfig } from 'next';
 
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-    ],
-  },
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true },
+  ...(isGitHubPages ? { basePath: '/Talar' } : {}),
 };
 
 export default nextConfig;

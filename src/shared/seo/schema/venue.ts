@@ -1,6 +1,6 @@
 import { parsePersianNumber } from '@/lib/persian-numbers';
 import { cityOf } from '@/lib/venue-search';
-import { siteConfig } from '@/shared/config/site.config';
+import { siteConfig, toAbsoluteUrl } from '@/shared/config/site.config';
 import type { VenueDetail } from '@/data-access/types';
 
 /**
@@ -25,7 +25,7 @@ export function buildVenueSchema(venue: VenueDetail, slug: string) {
     '@id': url,
     name: venue.title,
     url,
-    image: venue.images,
+    image: venue.images.map(toAbsoluteUrl),
     address: {
       '@type': 'PostalAddress',
       streetAddress: venue.address,

@@ -1,8 +1,11 @@
 import { parsePersianNumber } from './persian-numbers';
+import { cityOf } from './venue-search';
 
 export interface CategoryVenue {
   id: number | string;
   title: string;
+  /** شناسه دسته‌بندی واقعی (۱ تا ۸، مطابق src/data/categories.ts)؛ منبع واقعی فیلتر دسته‌بندی */
+  categoryId: number;
   location: string;
   rating: string;
   ratingCount: string;
@@ -32,6 +35,19 @@ export const CAPACITY_OPTIONS: CapacityOption[] = [
 
 export const SPACE_OPTIONS = ['فضای باز', 'فضای بسته'];
 
+export interface BudgetTier {
+  label: string;
+  min: number;
+  max: number;
+}
+
+/** بازه‌های قیمتی بر اساس پراکندگی واقعی قیمت‌های داده نمونه (میلیون تومان) */
+export const BUDGET_TIERS: BudgetTier[] = [
+  { label: 'اقتصادی', min: 0, max: 300 },
+  { label: 'متوسط', min: 300, max: 700 },
+  { label: 'لوکس', min: 700, max: Infinity },
+];
+
 export const AMENITY_OPTIONS = [
   'پارکینگ',
   'تشریفات و پذیرایی',
@@ -56,6 +72,8 @@ export function inferVenueType(title: string): string {
 export type ArrayFilterKey = 'areas' | 'spaceTypes' | 'amenities' | 'venueTypes';
 
 export interface CategoryFiltersState {
+  /** 'all' یا نام دقیق یک شهر مجاز؛ برای نوار سرچ استیکی بالای صفحه Category */
+  city: string;
   areas: string[];
   capacityMin: number;
   capacityMax: number;
@@ -69,6 +87,7 @@ export interface CategoryFiltersState {
 
 /** هیچ فیلتری به‌صورت پیش‌فرض فعال نیست؛ همه تالارها نمایش داده می‌شوند تا کاربر خودش انتخاب کند */
 export const DEFAULT_FILTERS: CategoryFiltersState = {
+  city: 'all',
   areas: [],
   capacityMin: 0,
   capacityMax: Infinity,
@@ -108,6 +127,7 @@ export { paginationRange } from '@/shared/lib/pagination';
 
 export function activeFilterCount(filters: CategoryFiltersState): number {
   return (
+    (filters.city !== 'all' ? 1 : 0) +
     filters.areas.length +
     (filters.capacityMin > 0 || filters.capacityMax < Infinity ? 1 : 0) +
     (filters.budgetMin != null || filters.budgetMax != null ? 1 : 0) +
@@ -123,6 +143,8 @@ export function filterCategoryVenues<T extends CategoryVenue>(
   filters: CategoryFiltersState
 ): T[] {
   return venues.filter((v) => {
+    if (filters.city !== 'all' && cityOf(v.location) !== filters.city) return false;
+
     if (filters.areas.length > 0 && !filters.areas.some((a) => v.location.includes(a))) {
       return false;
     }

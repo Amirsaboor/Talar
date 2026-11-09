@@ -1,9 +1,9 @@
 const img1 =
-  'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop';
+  '/images/6.webp';
 const img2 =
-  'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop';
+  '/images/1.webp';
 const img3 =
-  'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop';
+  '/images/2.webp';
 
 /**
  * محدوده جغرافیایی سایت: فقط مشهد، طرقبه و شاندیز.

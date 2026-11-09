@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import SearchPageContent from '@/components/templates/search/SearchPageContent';
 import { buildMetadata } from '@/shared/seo/metadata';
+import { SectionErrorBoundary } from '@/components/modules/error-boundary/SectionErrorBoundary';
 
 // نتایج این صفحه کاملاً به Query String (?q=, ?city=, ?page=) وابسته‌اند، پس همیشه noindex
 export const metadata: Metadata = buildMetadata({
@@ -14,9 +15,11 @@ export const metadata: Metadata = buildMetadata({
 export default function SearchPage() {
   return (
     <main id="main">
-      <Suspense fallback={null}>
-        <SearchPageContent />
-      </Suspense>
+      <SectionErrorBoundary message="نمایش نتایج جست‌وجو با خطا مواجه شد.">
+        <Suspense fallback={null}>
+          <SearchPageContent />
+        </Suspense>
+      </SectionErrorBoundary>
     </main>
   );
 }
