@@ -1,7 +1,12 @@
 import type { NextConfig } from 'next';
 
-// همه‌ی عکس‌های پروژه الان از /public/images می‌آیند (لوکال)، دیگر نیازی به
-// remotePatterns برای images.unsplash.com نیست
-const nextConfig: NextConfig = {};
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
+const nextConfig: NextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true },
+  ...(isGitHubPages ? { basePath: '/Talar' } : {}),
+};
 
 export default nextConfig;
