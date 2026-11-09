@@ -34,7 +34,7 @@ export default function VenueDetailView({ venue, similarVenues }: Props) {
               reviewCount={venue.reviewCount}
               address={venue.address}
             />
-            <VenueQuickInfo items={venue.quickInfo} />
+            <VenueQuickInfo venue={venue} />
             <VenueAbout paragraphs={venue.about} />
             <VenueAmenities items={venue.amenities} />
             <VenueMenuPackages packages={venue.menuPackages} />
