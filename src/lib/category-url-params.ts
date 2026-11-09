@@ -1,43 +1,60 @@
-import { defaultFilters, type BudgetOption, type CategoryFilters, type SortOption, type SpaceOption } from './category-filters';
+import {
+  DEFAULT_FILTERS,
+  type CategoryFiltersState,
+} from './category-filters';
 
-const BUDGET_VALUES: BudgetOption[] = ['any', 'economy', 'medium', 'luxury'];
-const SPACE_VALUES: SpaceOption[] = ['any', 'open', 'closed'];
-const SORT_VALUES: SortOption[] = ['recommended', 'newest', 'popular', 'rating', 'cheapest', 'expensive'];
-
-function oneOf<T extends string>(value: string | null, allowed: T[], fallback: T): T {
-  return (allowed as string[]).includes(value ?? '') ? (value as T) : fallback;
+function numberParam(params: URLSearchParams, key: string, fallback: number): number {
+  const value = params.get(key);
+  if (value === null) return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
 }
 
-/** خواندن state فیلترها از query string فعلی (برای بازگشت‌پذیری URL) */
-export function filtersFromSearchParams(params: URLSearchParams): CategoryFilters {
+function listParam(params: URLSearchParams, key: string, fallback: string[]): string[] {
+  const value = params.get(key);
+  return value === null ? fallback : value.split(',').map((item) => item.trim()).filter(Boolean);
+}
+
+/** خواندن فیلترهای دسته‌بندی از query string */
+export function filtersFromSearchParams(params: URLSearchParams): CategoryFiltersState {
+  const budgetMin = params.has('budgetMin') ? numberParam(params, 'budgetMin', 0) : null;
+  const budgetMax = params.has('budgetMax') ? numberParam(params, 'budgetMax', 0) : null;
+  const minRating = params.has('rating')
+    ? numberParam(params, 'rating', 0)
+    : DEFAULT_FILTERS.minRating;
+
   return {
-    query: params.get('q') ?? defaultFilters.query,
-    city: params.get('city') ?? defaultFilters.city,
-    capacityMin: Number(params.get('cap') ?? defaultFilters.capacityMin) || 0,
-    budget: oneOf(params.get('budget'), BUDGET_VALUES, defaultFilters.budget),
-    areas: params.get('areas')?.split(',').filter(Boolean) ?? defaultFilters.areas,
-    space: oneOf(params.get('space'), SPACE_VALUES, defaultFilters.space),
-    amenities: params.get('amenities')?.split(',').filter(Boolean) ?? defaultFilters.amenities,
-    minRating: Number(params.get('rating') ?? defaultFilters.minRating) || 0,
-    sortBy: oneOf(params.get('sort'), SORT_VALUES, defaultFilters.sortBy),
-    page: Math.max(1, Number(params.get('page') ?? 1) || 1),
+    city: params.get('city') ?? DEFAULT_FILTERS.city,
+    areas: listParam(params, 'areas', DEFAULT_FILTERS.areas),
+    capacityMin: numberParam(params, 'capMin', DEFAULT_FILTERS.capacityMin),
+    capacityMax: numberParam(params, 'capMax', DEFAULT_FILTERS.capacityMax),
+    budgetMin,
+    budgetMax,
+    spaceTypes: listParam(params, 'space', DEFAULT_FILTERS.spaceTypes),
+    amenities: listParam(params, 'amenities', DEFAULT_FILTERS.amenities),
+    minRating,
+    venueTypes: listParam(params, 'types', DEFAULT_FILTERS.venueTypes),
   };
 }
 
-/** نوشتن state فیلترها به‌صورت query string (فقط مقادیر غیر پیش‌فرض) */
-export function filtersToSearchParams(filters: CategoryFilters): URLSearchParams {
+/** تبدیل فیلترهای فعال به query string برای لینک قابل‌بازیابی */
+export function filtersToSearchParams(filters: CategoryFiltersState): URLSearchParams {
   const params = new URLSearchParams();
 
-  if (filters.query) params.set('q', filters.query);
-  if (filters.city) params.set('city', filters.city);
-  if (filters.capacityMin) params.set('cap', String(filters.capacityMin));
-  if (filters.budget !== 'any') params.set('budget', filters.budget);
+  if (filters.city !== DEFAULT_FILTERS.city) params.set('city', filters.city);
   if (filters.areas.length) params.set('areas', filters.areas.join(','));
-  if (filters.space !== 'any') params.set('space', filters.space);
+  if (filters.capacityMin !== DEFAULT_FILTERS.capacityMin) {
+    params.set('capMin', String(filters.capacityMin));
+  }
+  if (filters.capacityMax !== DEFAULT_FILTERS.capacityMax) {
+    params.set('capMax', String(filters.capacityMax));
+  }
+  if (filters.budgetMin !== null) params.set('budgetMin', String(filters.budgetMin));
+  if (filters.budgetMax !== null) params.set('budgetMax', String(filters.budgetMax));
+  if (filters.spaceTypes.length) params.set('space', filters.spaceTypes.join(','));
   if (filters.amenities.length) params.set('amenities', filters.amenities.join(','));
-  if (filters.minRating) params.set('rating', String(filters.minRating));
-  if (filters.sortBy !== 'recommended') params.set('sort', filters.sortBy);
-  if (filters.page > 1) params.set('page', String(filters.page));
+  if (filters.minRating !== null) params.set('rating', String(filters.minRating));
+  if (filters.venueTypes.length) params.set('types', filters.venueTypes.join(','));
 
   return params;
 }
