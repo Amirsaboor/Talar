@@ -58,7 +58,7 @@ export default function VenueDetailView({ venue, similarVenues }: Props) {
 
       <VenueSimilarVenues venues={similarVenues} />
       <VenueFinalCTA />
-      <VenueMobileCTA startingPrice={venue.startingPrice} />
+      <VenueMobileCTA venue={venue} />
     </>
   );
 }
