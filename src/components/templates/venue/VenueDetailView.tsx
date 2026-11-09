@@ -35,10 +35,10 @@ export default function VenueDetailView({ venue, similarVenues }: Props) {
               address={venue.address}
             />
             <VenueQuickInfo venue={venue} />
-            <VenueAbout paragraphs={venue.about} />
-            <VenueAmenities items={venue.amenities} />
-            <VenueMenuPackages packages={venue.menuPackages} />
-            <VenuePricing rows={venue.pricing} note={venue.priceNote} />
+            <VenueAbout venue={venue} />
+            <VenueAmenities venue={venue} />
+            <VenueMenuPackages venue={venue} />
+            <VenuePricing venue={venue} />
             <VenuePhotoGallery images={venue.images} title={venue.title} />
             <VenueVideoPreview poster={venue.images[0]} title={venue.title} />
             <VenueVirtualTourBanner />
