@@ -48,12 +48,7 @@ export default function VenueDetailView({ venue, similarVenues }: Props) {
               title={venue.title}
               nearbyTags={venue.nearbyTags}
             />
-            <VenueReviews
-              rating={venue.rating}
-              reviewCount={venue.reviewCount}
-              breakdown={venue.ratingBreakdown}
-              reviews={venue.reviews}
-            />
+            <VenueReviews venue={venue} />
             <VenueFAQAccordion faqs={venue.faqs} />
           </div>
 
