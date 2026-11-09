@@ -17,9 +17,9 @@ import VenueLocation from '@/components/templates/venue/VenueLocation';
 import VenueReviews from '@/components/templates/venue/VenueReviews';
 import VenueFAQ from '@/components/templates/venue/VenueFAQ';
 import VenueBookingSidebar from '@/components/templates/venue/VenueBookingSidebar';
-import VenueMobileCTA from '@/components/templates/venue/VenueMobileCta';
+import VenueMobileCTA from '@/components/templates/venue/VenueMobileCTA';
 import SimilarVenuesSection from '@/components/templates/venue/SimilarVenuesSection';
-import VenueFinalCTA from '@/components/templates/venue/VenueFinalCta';
+import VenueFinalCTA from '@/components/templates/venue/VenueFinalCTA';
 import { venueDetails } from '@/data/venue-details';
 import { getVenueRepository } from '@/data-access/repositories/venue.repository';
 import JsonLd from '@/components/modules/json-ld/JsonLd';
@@ -103,10 +103,10 @@ export default async function VenuePage({
         </div>
 
         <SimilarVenuesSection venues={similarVenues} />
-        <VenueFinalCta />
+        <VenueFinalCTA />
       </main>
 
-      <VenueMobileCta venue={venue} />
+      <VenueMobileCTA venue={venue} />
 
       <Footer />
     </div>
