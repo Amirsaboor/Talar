@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getCityRepository, getCategoryRepository, getVenueRepository } from '@/data-access';
 import { toSitemapEntries } from '@/shared/lib/sitemap-generator';
 
+export const dynamic = 'force-static';
+
 // دسته‌بندی‌های شبه‌واقعی که Entity مستقل در CategoryRepository ندارند ولی مسیر واقعی و
 // قابل‌ایندکس هستند (categoryLabels در src/lib/resolve-category-route.ts)
 const PSEUDO_CATEGORY_SLUGS = ['all', 'luxury', 'economy'];
