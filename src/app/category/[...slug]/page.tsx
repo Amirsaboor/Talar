@@ -7,7 +7,19 @@ import JsonLd from '@/components/modules/json-ld/JsonLd';
 import { buildCollectionPageSchema } from '@/shared/seo/schema/collection-page';
 import { buildBreadcrumbSchema } from '@/shared/seo/schema/breadcrumb';
 import { SectionErrorBoundary } from '@/components/modules/error-boundary/SectionErrorBoundary';
+import { categoryLabels } from '@/lib/resolve-category-route';
+import { cityMeta } from '@/data/cities';
 export { generateMetadata } from './metadata';
+
+// GitHub Pages uses static export, so every catch-all category URL must be known at build time.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  const categoryParams = Object.keys(categoryLabels).map((slug) => ({ slug: [slug] }));
+  const cityParams = Object.values(cityMeta).map(({ slug }) => ({ slug: ['city', slug] }));
+
+  return [...categoryParams, ...cityParams];
+}
 
 export default async function CategoryPage({
   params,
