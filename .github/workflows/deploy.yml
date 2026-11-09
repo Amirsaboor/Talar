@@ -31,6 +31,9 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: 'true'
+      - name: Fix public asset paths for project Pages
+        run: |
+          find out -type f \\( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.json' \\) -print0 | xargs -0 -r sed -i 's|/images/|/Talar/images/|g'
       - name: Add .nojekyll
         run: touch out/.nojekyll
       - name: Upload Pages artifact
